@@ -1,7 +1,10 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -33,6 +36,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static turistandoibitinga.mobot.com.br.turistandoibitinga.R.id.slider;
+
 public class ListarEmpresaActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecycleViewOnClickListener, BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener {
 
@@ -50,9 +55,32 @@ public class ListarEmpresaActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarListarEmpresa);
         setSupportActionBar(toolbar);
 
-        //Inicializando Slider
-        mDemoSlider = (SliderLayout)findViewById(R.id.slider);
+        //Defini quando o scroll rola fica o nome da Categoria da Empresa
+        final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
+        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.MyAppbar);
+        collapsingToolbarLayout.setTitle(" ");
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isShow = false;
+            int scrollRange = -1;
 
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    collapsingToolbarLayout.setTitle("Listar Empresas");
+                    isShow = true;
+                } else if(isShow) {
+                    collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
+                    isShow = false;
+                }
+            }
+        });
+
+
+        //Inicializando Slider
+        mDemoSlider = (SliderLayout)findViewById(slider);
         HashMap<String,String> url_maps = new HashMap<String, String>();
         url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
         url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
@@ -75,7 +103,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
 
             mDemoSlider.addSlider(textSliderView);
         }
-
         mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
         mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         mDemoSlider.setCustomAnimation(new DescriptionAnimation());
@@ -83,14 +110,14 @@ public class ListarEmpresaActivity extends AppCompatActivity
         mDemoSlider.addOnPageChangeListener(this);
 
 
+
+
+        //Listagem das empresas
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_listar_empresa);
         data_list = new ArrayList<>();
-        carregaDados(1);
-
+        carregaDados(0);
         linearLayoutManager = new LinearLayoutManager(this);
-
         recyclerView.setLayoutManager(linearLayoutManager);
-
         adapter = new CustomAdapterListarEmpresa(this, data_list);
         adapter.setRecycleViewOnClickListener(this);
         recyclerView.setAdapter(adapter);
@@ -117,7 +144,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.1.30/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://192.168.0.108/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -132,7 +159,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
                                 object.getString("foto_capa_otimizado"));
                         data_list.add(data);
                     }
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 } catch (JSONException e) {
@@ -156,7 +182,8 @@ public class ListarEmpresaActivity extends AppCompatActivity
 
     @Override
     public void onClickListener(View view, int position) {
-
+        Intent i = new Intent(this, DetalhesEmpresaActivity.class);
+        startActivity(i);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")

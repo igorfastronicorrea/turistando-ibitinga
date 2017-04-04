@@ -1,0 +1,183 @@
+CREATE TABLE EMPRESA(
+	ID INT AUTO_INCREMENT NOT NULL,
+    NOME VARCHAR(100),
+    DESCRICAO VARCHAR(9999),
+    FOTO_CAPA VARCHAR(200),
+    FOTO_CAPA_OTIMIZADO VARCHAR(200),
+    FOTO_1 VARCHAR(200),
+    FOTO_2 VARCHAR(200),
+    FOTO_3 VARCHAR(200),
+    FOTO_4 VARCHAR(200),
+    FOTO_5 VARCHAR(200),
+    FOTO_6 VARCHAR(200),
+    FOTO_7 VARCHAR(200),
+    FOTO_8 VARCHAR(200),
+    FOTO_9 VARCHAR(200),
+    FOTO_10 VARCHAR(200),
+    FOTO_11 VARCHAR(200),
+    FOTO_12 VARCHAR(200),
+    FOTO_13 VARCHAR(200),
+    FOTO_14 VARCHAR(200),
+    FOTO_15 VARCHAR(200),
+    FOTO_16 VARCHAR(200),
+    FOTO_17 VARCHAR(200),
+    FOTO_18 VARCHAR(200),
+    FOTO_19 VARCHAR(200),
+	FOTO_20 VARCHAR(200),
+    WHATSAPP VARCHAR(30),
+    FACEBOOK VARCHAR(100),
+    INSTAGRAN VARCHAR(100),
+    SITE VARCHAR(100),
+    TEL_1 VARCHAR(30),
+    TEL_2 VARCHAR(30),
+    HORARIO VARCHAR(200),
+    ENDERECO VARCHAR(500),
+    TOP_5 VARCHAR(10),
+    TOP_10 VARCHAR(10),
+    TOP_15 VARCHAR(10),
+	TOP_20 VARCHAR(10),
+    TOP_25 VARCHAR(10),
+    TOP_30 VARCHAR(10),
+    TOP_30_MAIS VARCHAR(10),
+    GRATIS VARCHAR(10),
+)
+
+
+
+
+--insert
+
+INSERT INTO `dbturistandoibitinga`.`empresa` (
+    `ID`, `NOME`, `DESCRICAO`, `FOTO_CAPA`, 
+    `FOTO_CAPA_OTIMIZADO`, `FOTO_1`, `FOTO_2`,
+    `FOTO_3`, `FOTO_4`, `FOTO_5`, `FOTO_6`, 
+    `FOTO_7`, `FOTO_8`, `FOTO_9`, `FOTO_10`,
+    `FOTO_11`, `FOTO_12`, `FOTO_13`, `FOTO_14`,
+    `FOTO_15`, `FOTO_16`, `FOTO_17`, `FOTO_18`,
+    `FOTO_19`, `FOTO_20`, `WHATSAPP`, `FACEBOOK`,
+    `INSTAGRAN`, `SITE`, `TEL_1`, `TEL_2`, `HORARIO`, 
+    `ENDERECO`, `TOP_5`, `TOP_10`, `TOP_15`, `TOP_20`, 
+    `TOP_25`, `TOP_30`, `TOP_30_MAIS`, `GRATIS`) 
+
+VALUES (NULL, 'Helen Borda', 
+    'descricao helen borda', 'foto_capa', 'foto_capa', 
+    'foto_capa', 'foto_capa', 'foto_capa', 'foto_capa', 
+    'foto_capa', 'foto_capa', 'foto_capa', 'foto_capa', 
+    'foto_capa', 'foto_capa', 'foto_capa', 'foto_capa', 
+    'foto_capa', 'foto_capa', 'foto_capa', 'foto_capa', 
+    'foto_capa', 'foto_capa', 'foto_capa', 'foto_capa', 
+    '16991377661', 'facebook.com', 'instagram.com', 
+    'site.com.br', '1633412719', '1633412719', 
+    'Segunda a Sexta das 08h as 18h', 'R. Aristoteles Lula', 
+    'S', 'N', 'N', 'N', 'N', 'N', 'N', 'N');
+
+
+
+--TRAZER POR ORDEM DE MENOR NIVEL PARA MAIOR | Criando view \\DEPRECIADO
+CREATE view selectEmpresaNiveis as
+
+SELECT 'A' AS ORDENA, * FROM EMPRESA WHERE TOP_5 = 'S' 
+UNION ALL 
+SELECT 'B' AS ORDENA, * FROM EMPRESA WHERE TOP_10 = 'S' 
+UNION ALL 
+SELECT 'C' AS ORDENA, * FROM EMPRESA WHERE TOP_15 = 'S' 
+UNION ALL 
+SELECT 'D' AS ORDENA, * FROM EMPRESA WHERE TOP_20 = 'S'
+UNION ALL 
+SELECT 'E' AS ORDENA, * FROM EMPRESA WHERE TOP_25 = 'S'
+UNION ALL 
+SELECT 'F' AS ORDENA, * FROM EMPRESA WHERE TOP_30 = 'S'
+UNION ALL 
+SELECT 'G' AS ORDENA, * FROM EMPRESA WHERE TOP_30_MAIS = 'S'
+UNION ALL 
+SELECT 'H' AS ORDENA, * FROM EMPRESA WHERE GRATIS = 'S'
+
+
+
+
+--SELECT da view
+SELECT * FROM viewSelectEmpresaListagem 
+ORDER BY ORDENA, ID
+
+
+
+--CRIAR VIEW DA LISTAGEM
+CREATE view viewSelectEmpresaListagem as
+
+SELECT 'A' AS ORDENA, ID,
+    NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO
+FROM EMPRESA WHERE TOP_5 = 'S' 
+
+
+UNION ALL 
+
+
+
+SELECT 'B' AS ORDENA, ID,
+  NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO
+ FROM EMPRESA WHERE TOP_10 = 'S' 
+
+
+UNION ALL
+
+
+SELECT 'C' AS ORDENA, ID,
+   NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO
+ FROM EMPRESA WHERE TOP_15 = 'S' 
+
+
+UNION ALL
+
+
+SELECT 'D' AS ORDENA, ID,
+   NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO
+FROM EMPRESA WHERE TOP_20 = 'S'
+
+
+UNION ALL
+
+
+SELECT 'E' AS ORDENA, ID,
+  NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO 
+ FROM EMPRESA WHERE TOP_25 = 'S'
+
+
+UNION ALL 
+
+
+SELECT 'F' AS ORDENA, ID,
+   NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO 
+FROM EMPRESA WHERE TOP_30 = 'S'
+
+
+UNION ALL 
+
+
+SELECT 'G' AS ORDENA, ID,
+   NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO 
+FROM EMPRESA WHERE TOP_30_MAIS = 'S'
+
+
+UNION ALL 
+
+
+SELECT 'H' AS ORDENA, ID,
+    NOME,
+    FOTO_CAPA_OTIMIZADO ,
+    ENDERECO 
+ FROM EMPRESA WHERE GRATIS = 'S'
+
