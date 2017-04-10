@@ -1,5 +1,6 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -14,17 +15,25 @@ import android.support.v7.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.List;
 
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
+
 public class DetalhesEmpresaActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-
+    private String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_detalhes_empresa);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDetalhesEmpresa);
         setSupportActionBar(toolbar);
+
+        //Recebe o id da classe ListarEmpresaActivity que é o id da empresa que deve ser
+        //enviado para os fragments
+        Intent intent = getIntent();
+        id = intent.getStringExtra("id");
+
 
         //Definindo quando o scroll rolar muda o nome do title
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar_detalhes_empresa);
@@ -55,6 +64,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
 
+
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
     }
@@ -79,6 +89,12 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
 
         @Override
         public Fragment getItem(int position) {
+
+            //Envia o id da empresa selecionada para o fragment
+            Bundle bundle = new Bundle();
+            bundle.putString("id", id);
+            mFragmentList.get(position).setArguments(bundle);
+
             return mFragmentList.get(position);
         }
 

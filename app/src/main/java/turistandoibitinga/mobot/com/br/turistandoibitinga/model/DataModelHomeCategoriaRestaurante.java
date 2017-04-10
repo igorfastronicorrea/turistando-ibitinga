@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.model;
 
 /**
  * Created by mobot on 01/04/2017.

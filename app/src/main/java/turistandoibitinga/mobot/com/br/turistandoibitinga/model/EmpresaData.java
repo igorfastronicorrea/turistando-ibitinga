@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.model;
 
 /**
  * Created by mobot on 02/04/2017.
@@ -6,11 +6,11 @@ package turistandoibitinga.mobot.com.br.turistandoibitinga;
 
 public class EmpresaData {
 
-    int id_;
+    int id;
     String nome, foto_capa_otimizado;
 
-    public EmpresaData(int id_, String nome, String foto_capa_otimizado) {
-        this.id_ = id_;
+    public EmpresaData(int id, String nome, String foto_capa_otimizado) {
+        this.id = id;
         this.nome = nome;
         this.foto_capa_otimizado = foto_capa_otimizado;
     }
@@ -24,6 +24,6 @@ public class EmpresaData {
     }
 
     public int getId() {
-        return id_;
+        return id;
     }
 }

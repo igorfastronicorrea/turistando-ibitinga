@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -35,6 +35,10 @@ import java.util.List;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListener;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterListarEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.EmpresaData;
 
 import static turistandoibitinga.mobot.com.br.turistandoibitinga.R.id.slider;
 
@@ -110,8 +114,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
         mDemoSlider.addOnPageChangeListener(this);
 
 
-
-
         //Listagem das empresas
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view_listar_empresa);
         data_list = new ArrayList<>();
@@ -144,7 +146,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.0.108/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://192.168.1.30/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -182,7 +184,11 @@ public class ListarEmpresaActivity extends AppCompatActivity
 
     @Override
     public void onClickListener(View view, int position) {
+
+        // Passando o id da empresa que foi clicada para a tela Detalhes Empresa que depos
+        // passa para a tela FragmentDescricao etc.
         Intent i = new Intent(this, DetalhesEmpresaActivity.class);
+        i.putExtra("id", Integer.toString(data_list.get(position).getId()));
         startActivity(i);
     }
 

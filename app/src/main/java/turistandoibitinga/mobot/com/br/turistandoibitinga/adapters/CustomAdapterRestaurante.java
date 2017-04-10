@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListenerRestaurante;
 
 /**
  * Created by mobot on 01/04/2017.

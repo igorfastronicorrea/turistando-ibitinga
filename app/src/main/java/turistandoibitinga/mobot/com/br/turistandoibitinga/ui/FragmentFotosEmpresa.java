@@ -1,10 +1,12 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 /**
  * Created by igorf on 03/04/2017.

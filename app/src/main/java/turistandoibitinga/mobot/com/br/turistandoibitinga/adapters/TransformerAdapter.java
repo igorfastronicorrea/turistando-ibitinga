@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.daimajia.slider.library.SliderLayout;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 /**
  * Created by mobot on 02/04/2017.

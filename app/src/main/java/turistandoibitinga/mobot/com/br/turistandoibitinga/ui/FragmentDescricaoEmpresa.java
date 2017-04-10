@@ -1,16 +1,24 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 /**
  * Created by igorf on 03/04/2017.
  */
 
 public class FragmentDescricaoEmpresa extends Fragment {
+
+    TextView txtDetalhesDecricaoEmpresa;
+    ViewPager viewPager;
 
     public FragmentDescricaoEmpresa() {
         // Required empty public constructor
@@ -29,9 +37,12 @@ public class FragmentDescricaoEmpresa extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_descricao_empresa, container, false);
 
-        //progressBar = (ProgressBar) v.findViewById(R.id.progressBar);
-        //progressBar.setVisibility(View.VISIBLE);
+        //txtDetalhesDecricaoEmpresa = (TextView) v.findViewById(R.id.txtDetalhesDecricaoEmpresa);
 
+        final Bundle args = getArguments();
+        final String side = args.getString("id");
+//        txtDetalhesDecricaoEmpresa.setText(side);
+        Toast.makeText(getContext(), "nana:  "+ side, Toast.LENGTH_LONG).show();
         return v;
     }
 

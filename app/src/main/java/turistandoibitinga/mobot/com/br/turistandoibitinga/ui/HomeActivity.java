@@ -1,4 +1,4 @@
-package turistandoibitinga.mobot.com.br.turistandoibitinga;
+package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +17,16 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListener;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListenerRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterRestaurante;
 
 
 public class HomeActivity extends AppCompatActivity
