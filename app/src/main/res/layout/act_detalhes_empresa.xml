@@ -10,7 +10,6 @@
         android:id="@+id/myappbar_detalhes_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -26,7 +25,8 @@
             <ImageView
                 android:id="@+id/imgDetalhesEmpresa"
                 android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                android:layout_height="200dp"
+                android:scaleType="fitXY"/>
 
 
             <android.support.v7.widget.Toolbar

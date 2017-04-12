@@ -42,7 +42,7 @@ public class CustomAdapterListarEmpresa  extends RecyclerView.Adapter<CustomAdap
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.description.setText(my_data.get(position).getNome());
-        Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizado()).resize(120, 60).into(holder.ivFoto);
+        Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizada()).resize(120, 60).into(holder.ivFoto);
     }
 
     @Override

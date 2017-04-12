@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
@@ -37,12 +36,14 @@ public class FragmentDescricaoEmpresa extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_descricao_empresa, container, false);
 
-        //txtDetalhesDecricaoEmpresa = (TextView) v.findViewById(R.id.txtDetalhesDecricaoEmpresa);
+        txtDetalhesDecricaoEmpresa = (TextView) v.findViewById(R.id.txtDetalhesDecricaoEmpresa);
 
+        //Recebe da activity DetalhesEMpresaActivity e seta no txtview
         final Bundle args = getArguments();
-        final String side = args.getString("id");
-//        txtDetalhesDecricaoEmpresa.setText(side);
-        Toast.makeText(getContext(), "nana:  "+ side, Toast.LENGTH_LONG).show();
+        final String side = args.getString("descricao");
+        txtDetalhesDecricaoEmpresa.setText(side);
+
+
         return v;
     }
 

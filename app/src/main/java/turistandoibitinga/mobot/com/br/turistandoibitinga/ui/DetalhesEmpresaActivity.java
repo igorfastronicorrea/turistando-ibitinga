@@ -11,6 +11,9 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +24,9 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private String id;
+    private String id, descricao, foto;
+    private ImageView imgDetalhesEmpresa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,16 +34,21 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDetalhesEmpresa);
         setSupportActionBar(toolbar);
 
-        //Recebe o id da classe ListarEmpresaActivity que é o id da empresa que deve ser
+        //Recebe o id, foto da classe ListarEmpresaActivity que é o id da empresa que deve ser
         //enviado para os fragments
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
+        descricao = intent.getStringExtra("descricao");
+        foto = intent.getStringExtra("foto_capa_otimizada");
 
+        //seta imagem da capa no fragment - todos
+        imgDetalhesEmpresa = (ImageView) findViewById(R.id.imgDetalhesEmpresa);
+        Picasso.with(getBaseContext()).load(foto).into(imgDetalhesEmpresa);
 
         //Definindo quando o scroll rolar muda o nome do title
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar_detalhes_empresa);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.myappbar_detalhes_empresa);
-        collapsingToolbarLayout.setTitle(" ");
+        collapsingToolbarLayout.setTitle("");
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
             int scrollRange = -1;
@@ -59,7 +69,11 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         });
 
 
+        //desativa titulo actionBar
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager);
@@ -90,10 +104,21 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         @Override
         public Fragment getItem(int position) {
 
-            //Envia o id da empresa selecionada para o fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("id", id);
-            mFragmentList.get(position).setArguments(bundle);
+            //Fragment Descricao
+            if(position == 0) {
+                //Envia o id da empresa selecionada para o fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("descricao", descricao);
+                mFragmentList.get(position).setArguments(bundle);
+            }
+
+            //Fragment Foto
+            if(position == 1) {
+                //Envia o id da empresa selecionada para o fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("id", id);
+                mFragmentList.get(position).setArguments(bundle);
+            }
 
             return mFragmentList.get(position);
         }
