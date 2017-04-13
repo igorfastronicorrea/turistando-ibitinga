@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "turistandoibitinga.mobot.com.br.turistandoibitinga"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -36,4 +36,8 @@ dependencies {
     compile 'com.nineoldandroids:library:2.4.0'
     compile 'com.daimajia.slider:library:1.1.5@aar'
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.android.volley:volley:1.0.0'
+    compile 'com.google.android.gms:play-services-maps:10.0.1'
+    compile 'com.github.traex.rippleeffect:library:1.3'
 }

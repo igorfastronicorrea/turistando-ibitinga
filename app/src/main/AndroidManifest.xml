@@ -3,7 +3,12 @@
     package="turistandoibitinga.mobot.com.br.turistandoibitinga">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +34,11 @@
             android:name=".ui.DetalhesEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyC-GpACOiuhsdirDTHvZGkmTsw6lVJgmOM"/>
     </application>
 
 </manifest>

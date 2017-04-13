@@ -11,46 +11,239 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/txtDetalhesNomeEmpresa"
-            android:layout_width="wrap_content"
+            android:id="@+id/txtNomeDetalhesEmpresa"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:gravity="center"
             android:text="Igor Bordados"
-            android:textSize="18sp" />
+            android:textSize="22sp" />
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/darker_gray" />
+
+        <com.andexert.library.RippleView
+            android:id="@+id/socialmedias"
+            rv_centered="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+
+                <ImageView
+                    android:id="@+id/facebookDetalhesEmpresa"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/icon_face" />
+
+                <ImageView
+                    android:id="@+id/instagramDetalhesEmpresa"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/icon_insta" />
+
+
+                <ImageView
+                    android:id="@+id/whatsDetalhesEmpresa"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_weight="2"
+                    android:src="@drawable/icon_whats" />
+
+
+            </LinearLayout>
+        </com.andexert.library.RippleView>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/facebookDetalhesEmpresa"
-                android:layout_width="wrap_content"
+                android:id="@+id/ic_siteDetalhesEmpresa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_web_grey" />
+
+            <TextView
+                android:id="@+id/txtSiteDetalhesEmpresa"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:src="@drawable/ic_detalhes_face" />
-
-
-            <ImageView
-                android:id="@+id/whatsDetalhesEmpresa"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:src="@drawable/ic_detalhes_whats" />
-
-
-
-            <ImageView
-                android:id="@+id/instagramDetalhesEmpresa"
-                android:layout_width="wrap_content"
-                android:layout_weight="2"
-                android:layout_height="wrap_content"
-                android:src="@drawable/instagram" />
+                android:layout_marginLeft="30dp"
+                android:text="www.juma.com.br"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_tel1DetalhesEmpresa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_phone_grey" />
+
+            <TextView
+                android:id="@+id/txtTel1DetalhesEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="(16) 3341 - 2719"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_tel2DetalhesEmpresa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_phone_grey" />
+
+            <TextView
+                android:id="@+id/txtTel2DetalhesEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="(16) 99137 - 7661"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_horarioDetalhesEmpresa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_clock_grey600" />
+
+            <TextView
+                android:id="@+id/txtHorarioDetalhesEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Aberto de Segunda a Sexta das 08h as 17h"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ic_mapDetalhesEmpresa"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/ic_map_marker_grey" />
+
+
+            <TextView
+                android:id="@+id/txtEnderecoDetalhesEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:text="Rua Aristóteles Lula, 36 - Jd. Terra Branca"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/darker_gray" />
+
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp" />
 
 
     </LinearLayout>

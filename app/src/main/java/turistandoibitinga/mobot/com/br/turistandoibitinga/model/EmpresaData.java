@@ -16,6 +16,12 @@ public class EmpresaData {
         this.foto_capa_otimizada = foto_capa_otimizada;
     }
 
+    public EmpresaData(int id, String nome, String descricao) {
+        this.id = id;
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     public String getNome() {
         return nome;
     }

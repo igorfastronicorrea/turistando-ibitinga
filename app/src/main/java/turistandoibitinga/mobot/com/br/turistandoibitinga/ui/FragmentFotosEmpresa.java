@@ -14,6 +14,7 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 public class FragmentFotosEmpresa extends Fragment {
 
+
     public FragmentFotosEmpresa() {
         // Required empty public constructor
     }
@@ -34,7 +35,6 @@ public class FragmentFotosEmpresa extends Fragment {
 
         return v;
     }
-
 
     @Override
     public void onResume() {

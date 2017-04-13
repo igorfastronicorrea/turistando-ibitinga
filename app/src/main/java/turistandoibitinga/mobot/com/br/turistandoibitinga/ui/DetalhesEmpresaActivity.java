@@ -120,6 +120,14 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
                 mFragmentList.get(position).setArguments(bundle);
             }
 
+            //Fragment Informações
+            if(position == 2) {
+                //Envia o id da empresa selecionada para o fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("id", id);
+                mFragmentList.get(position).setArguments(bundle);
+            }
+
             return mFragmentList.get(position);
         }
 

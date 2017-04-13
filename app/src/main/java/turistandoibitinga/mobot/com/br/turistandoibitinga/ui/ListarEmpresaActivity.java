@@ -146,7 +146,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.0.108/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://192.168.1.33/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
