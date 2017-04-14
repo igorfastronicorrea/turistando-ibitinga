@@ -14,7 +14,6 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 public class FragmentFotosEmpresa extends Fragment {
 
-
     public FragmentFotosEmpresa() {
         // Required empty public constructor
     }
@@ -31,7 +30,6 @@ public class FragmentFotosEmpresa extends Fragment {
 
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fotos_empresa, container, false);
-
 
         return v;
     }

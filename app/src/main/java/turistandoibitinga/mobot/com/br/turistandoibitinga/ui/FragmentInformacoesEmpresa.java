@@ -19,6 +19,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -38,10 +47,15 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 public class FragmentInformacoesEmpresa extends Fragment {
 
-    private TextView txtNomeDetalhesEmpresa, txtSiteDetalhesEmpresa, txtTel1DetalhesEmpresa,
+    private TextView txtNomeDetalhesEmpresa, txtSiteDetalhesEmpresa,txtEmailDetalhesEmpresa, txtTel1DetalhesEmpresa,
             txtTel2DetalhesEmpresa, txtHorarioDetalhesEmpresa, txtEnderecoDetalhesEmpresa;
     private ImageView facebookDetalhesEmpresa, instagramDetalhesEmpresa, whatsDetalhesEmpresa;
-    private String idEmpresa, nome, face, faceid, insta, whats, site, tel1, tel2, horario, endereco;
+    private String idEmpresa, nome, face, faceid, insta, whats, site, email, tel1, tel2, horario, endereco, lat, log;
+
+    MapView mMapView;
+    private GoogleMap googleMap;
+
+
 
     public FragmentInformacoesEmpresa() {
         // Required empty public constructor
@@ -59,19 +73,37 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
         txtNomeDetalhesEmpresa = (TextView) v.findViewById(R.id.txtNomeDetalhesEmpresa);
         txtSiteDetalhesEmpresa = (TextView) v.findViewById(R.id.txtSiteDetalhesEmpresa);
+        txtEmailDetalhesEmpresa = (TextView) v.findViewById(R.id.txtEmailDetalhesEmpresa);
         txtTel1DetalhesEmpresa = (TextView) v.findViewById(R.id.txtTel1DetalhesEmpresa);
         txtTel2DetalhesEmpresa = (TextView) v.findViewById(R.id.txtTel2DetalhesEmpresa);
         txtHorarioDetalhesEmpresa = (TextView) v.findViewById(R.id.txtHorarioDetalhesEmpresa);
         txtEnderecoDetalhesEmpresa = (TextView) v.findViewById(R.id.txtEnderecoDetalhesEmpresa);
 
+
         facebookDetalhesEmpresa = (ImageView) v.findViewById(R.id.facebookDetalhesEmpresa);
         whatsDetalhesEmpresa    = (ImageView) v.findViewById(R.id.whatsDetalhesEmpresa);
         instagramDetalhesEmpresa = (ImageView) v.findViewById(R.id.instagramDetalhesEmpresa);
+
 
         //Recebe id da classe DetalhesEmpresa Activity
         final Bundle args = getArguments();
         idEmpresa = args.getString("id");
         carregaDados(Integer.parseInt(idEmpresa));
+
+
+
+        mMapView = (MapView) v.findViewById(R.id.mapView);
+        mMapView.onCreate(savedInstanceState);
+
+        mMapView.onResume(); // needed to get the map to display immediately
+
+        try {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
 
         return v;
     }
@@ -99,10 +131,13 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         insta = object.getString("instagram");
                         whats = object.getString("whatsapp");
                         site = object.getString("site");
+                        email = object.getString("email");
                         tel1 = object.getString("tel1");
                         tel2 = object.getString("tel2");
                         horario = object.getString("horario");
                         endereco = object.getString("endereco");
+                        lat = object.getString("lat");
+                        log = object.getString("log");
 
                     }
                 } catch (IOException e) {
@@ -120,6 +155,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
                 txtNomeDetalhesEmpresa.setText(nome);
                 txtSiteDetalhesEmpresa.setText(site);
+                txtEmailDetalhesEmpresa.setText(email);
                 txtTel1DetalhesEmpresa.setText(tel1);
                 txtTel2DetalhesEmpresa.setText(tel2);
                 txtHorarioDetalhesEmpresa.setText(horario);
@@ -142,6 +178,24 @@ public class FragmentInformacoesEmpresa extends Fragment {
                     }
                 });
 
+                //instagram
+                instagramDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
+                        Intent instagram = new Intent(Intent.ACTION_VIEW, uri);
+                        instagram.setPackage("com.instagram.android");
+
+                        if (isIntentAvailable(getContext(), instagram)){
+                            startActivity(instagram);
+                        } else{
+                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/"+insta)));
+                        }
+
+                    }
+                });
+
+                //WhatsApp
                 whatsDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -176,19 +230,58 @@ public class FragmentInformacoesEmpresa extends Fragment {
                 });
 
 
-                instagramDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                //Demais informações - site, email, telefone, horario, endereço
+                txtSiteDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
-                        Intent insta = new Intent(Intent.ACTION_VIEW, uri);
-                        insta.setPackage("com.instagram.android");
+                        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://"+site.toString()+"/")));
+                    }
+                });
 
-                        if (isIntentAvailable(getContext(), insta)){
-                            startActivity(insta);
-                        } else{
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/"+insta)));
-                        }
+                txtEmailDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/plain");
+                        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
+                        startActivity(Intent.createChooser(intent, ""));
+                    }
+                });
 
+                txtTel1DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                        callIntent.setData(Uri.parse("tel:"+tel1));
+                        startActivity(callIntent );
+                    }
+                });
+
+                txtTel2DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                        callIntent.setData(Uri.parse("tel:"+tel2));
+                        startActivity(callIntent );
+                    }
+                });
+
+
+                mMapView.getMapAsync(new OnMapReadyCallback() {
+                    @Override
+                    public void onMapReady(GoogleMap mMap) {
+                        googleMap = mMap;
+
+                        // For showing a move to my location button
+                        googleMap.setMyLocationEnabled(false);
+
+                        // For dropping a marker at a point on the Map
+                        LatLng sydney = new LatLng(Double.parseDouble(lat), Double.parseDouble(log));
+                        googleMap.addMarker(new MarkerOptions().position(sydney).title(nome));
+
+                        // For zooming automatically to the location of the marker
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     }
                 });
 
@@ -224,7 +317,24 @@ public class FragmentInformacoesEmpresa extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        mMapView.onResume();
+    }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        mMapView.onPause();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mMapView.onDestroy();
+    }
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        mMapView.onLowMemory();
     }
 }
 
