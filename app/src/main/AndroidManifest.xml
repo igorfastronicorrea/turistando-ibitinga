@@ -34,11 +34,14 @@
             android:name=".ui.DetalhesEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.DetailFotoZoom"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBOSTnwb4j-R1uJi9JhfRsktzNY0YwTUAY"/>
+            android:value="AIzaSyDhkoDres7T9W7M_H8jpGE-zG7Hla7NmG4"/>
     </application>
 
 </manifest>

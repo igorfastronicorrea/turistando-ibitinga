@@ -10,15 +10,17 @@
         android:id="@+id/myappbar_detalhes_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorTuristandoAzul"
         android:fitsSystemWindows="true"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapse_toolbar_detalhes_empresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/colorTuristandoAzul"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
             app:titleEnabled="false">
 
@@ -26,6 +28,7 @@
                 android:id="@+id/imgDetalhesEmpresa"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:fitsSystemWindows="true"
                 android:scaleType="fitXY"/>
 
 
@@ -45,6 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@color/colorTuristandoAzul"
             app:tabIndicatorColor="@android:color/white"
             app:tabSelectedTextColor="@android:color/white"
             app:tabTextColor="@color/colorAccent" />

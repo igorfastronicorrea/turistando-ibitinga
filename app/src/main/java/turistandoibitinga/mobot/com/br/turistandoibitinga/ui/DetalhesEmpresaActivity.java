@@ -146,4 +146,5 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
 }

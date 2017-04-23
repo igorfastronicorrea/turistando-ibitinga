@@ -60,5 +60,6 @@
             android:scaleType="fitXY"
             app:srcCompat="@drawable/home_oqfazer" />
 
+
     </LinearLayout>
 </ScrollView>

@@ -93,9 +93,9 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
 
         mMapView = (MapView) v.findViewById(R.id.mapView);
-        mMapView.onCreate(savedInstanceState);
+       // mMapView.onCreate(savedInstanceState);
 
-        mMapView.onResume(); // needed to get the map to display immediately
+        //mMapView.onResume(); // needed to get the map to display immediately
 
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -115,7 +115,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.1.33/wsturistandoibitinga/detalhesinformacaoesempresa.php?id=" + id)
+                Request request = new Request.Builder().url("http://192.168.1.36/wsturistandoibitinga/detalhesinformacaoesempresa.php?id=" + id)
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -317,24 +317,24 @@ public class FragmentInformacoesEmpresa extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        mMapView.onResume();
+//        mMapView.onResume();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mMapView.onPause();
+        //mMapView.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mMapView.onDestroy();
+       // mMapView.onDestroy();
     }
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        mMapView.onLowMemory();
+      //  mMapView.onLowMemory();
     }
 }
 

@@ -8,4 +8,5 @@ import android.view.View;
 
 public interface RecycleViewOnClickListenerRestaurante {
     public void onClickListenerRestaurante(View view, int position);
+
 }
