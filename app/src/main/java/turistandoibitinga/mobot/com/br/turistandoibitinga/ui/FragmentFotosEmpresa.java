@@ -4,12 +4,12 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,8 +57,6 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
         View v = inflater.inflate(R.layout.fragment_fotos_empresa, container, false);
 
 
-
-
         recyclerView = (RecyclerView) v.findViewById(R.id.recycler_view_fotos_empresa);
         data_list = new ArrayList<>();
 
@@ -69,7 +67,9 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
 
 
         linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        //recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+
         adapter = new CustomAdapterFotosEmpresa(getContext(), data_list);
         adapter.setRecycleViewOnClickListener(this);
         recyclerView.setAdapter(adapter);
@@ -97,7 +97,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.1.36/wsturistandoibitinga/fotosempresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/detalhes_empresa_fotos.php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -108,9 +108,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
                         JSONObject object = array.getJSONObject(i);
 
                         ImagemDataEmpresa data = new ImagemDataEmpresa(object.getInt("id"),
-                                object.getString("foto_1"),
-                                object.getString("foto_2"),
-                                object.getString("foto_3"));
+                                object.getString("nome_foto"));
                         data_list.add(data);
                     }
                 } catch (IOException e) {
@@ -141,8 +139,10 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
 
     @Override
     public void onClickListener(View view, int position) {
-        Toast.makeText(getActivity(), "position" + position, Toast.LENGTH_LONG).show();
         Intent i = new Intent(getContext(), DetailFotoZoom.class);
+        String posicao = String.valueOf(position);
+        i.putExtra("id", idEmpresa);
+        i.putExtra("position", posicao);
         startActivity(i);
     }
 }

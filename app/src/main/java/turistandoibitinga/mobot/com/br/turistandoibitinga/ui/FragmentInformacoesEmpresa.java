@@ -115,7 +115,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.1.36/wsturistandoibitinga/detalhesinformacaoesempresa.php?id=" + id)
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/detalhes_empresa.php?id=" + id)
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();

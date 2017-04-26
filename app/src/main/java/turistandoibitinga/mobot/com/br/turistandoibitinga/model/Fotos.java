@@ -1,15 +1,15 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.model;
 
 /**
- * Created by igorf on 21/04/2017.
+ * Created by igorf on 25/04/2017.
  */
 
-public class ImagemDataEmpresa {
-
+public class Fotos {
     int id;
     String foto;
 
-    public ImagemDataEmpresa(int id, String foto) {
+
+    public Fotos(int id, String foto) {
         this.id = id;
         this.foto = foto;
     }
@@ -29,4 +29,6 @@ public class ImagemDataEmpresa {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
+
 }

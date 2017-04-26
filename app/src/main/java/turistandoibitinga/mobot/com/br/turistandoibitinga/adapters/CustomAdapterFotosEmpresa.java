@@ -19,7 +19,7 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.model.ImagemDataEmpres
  * Created by mobot on 02/04/2017.
  */
 
-public class CustomAdapterFotosEmpresa extends RecyclerView.Adapter<CustomAdapterFotosEmpresa.ViewHolder>{
+public class CustomAdapterFotosEmpresa extends RecyclerView.Adapter<CustomAdapterFotosEmpresa.ViewHolder> {
 
     private Context context;
     private List<ImagemDataEmpresa> my_data;
@@ -32,16 +32,16 @@ public class CustomAdapterFotosEmpresa extends RecyclerView.Adapter<CustomAdapte
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_fotos_empresas,parent,false);
+
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_fotos_empresas, parent, false);
 
         return new ViewHolder(itemView);
+
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Picasso.with(context).load(my_data.get(position).getFoto_1()).resize(120, 60).into(holder.foto_1);
-        Picasso.with(context).load(my_data.get(position).getFoto_2()).resize(120, 60).into(holder.foto_2);
-        //Picasso.with(context).load(my_data.get(position).getFoto_3()).resize(120, 60).into(holder.ivFoto);
+        Picasso.with(context).load(my_data.get(position).getFoto()).resize(120, 60).into(holder.foto_1);
     }
 
     @Override
@@ -49,24 +49,23 @@ public class CustomAdapterFotosEmpresa extends RecyclerView.Adapter<CustomAdapte
         return my_data.size();
     }
 
-    public void setRecycleViewOnClickListener(RecycleViewOnClickListener r){
+    public void setRecycleViewOnClickListener(RecycleViewOnClickListener r) {
         recycleViewOnClickListener = r;
     }
 
-    public  class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        public ImageView foto_1, foto_2;
+        public ImageView foto_1;
 
         public ViewHolder(View itemView) {
             super(itemView);
             foto_1 = (ImageView) itemView.findViewById(R.id.fotosEmpresa);
-            foto_2 = (ImageView) itemView.findViewById(R.id.afotosEmpresa);
             itemView.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            if(recycleViewOnClickListener != null){
+            if (recycleViewOnClickListener != null) {
                 recycleViewOnClickListener.onClickListener(v, getPosition());
             }
 

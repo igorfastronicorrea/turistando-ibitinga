@@ -39,7 +39,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         descricao = intent.getStringExtra("descricao");
-        foto = intent.getStringExtra("foto_capa_otimizada");
+        foto = intent.getStringExtra("foto_capa_ot");
 
         //seta imagem da capa no fragment - todos
         imgDetalhesEmpresa = (ImageView) findViewById(R.id.imgDetalhesEmpresa);

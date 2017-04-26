@@ -7,7 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.Fotos;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
@@ -18,12 +22,11 @@ public class ImageAdapter extends PagerAdapter {
 
     Context context;
 
-   // MainActivity act;
-    int[] GalImages;
+   private List<Fotos> my_data;
 
-    public ImageAdapter(Context context, int[] GalImages){
+    public ImageAdapter(Context context, List<Fotos>  my_data){
         this.context = context;
-        this.GalImages = GalImages;
+        this.my_data = my_data;
     }
 
     ImageAdapter(Context context){
@@ -32,7 +35,7 @@ public class ImageAdapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return GalImages.length;
+        return my_data.size();
     }
 
     @Override
@@ -44,10 +47,7 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         //super.instantiateItem(container, position);
         ImageView imageView = new ImageView(context);
-        int padding = context.getResources().getDimensionPixelSize(R.dimen.fab_margin);
-        imageView.setPadding(padding, padding, padding, padding);
-        imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        imageView.setImageResource(GalImages[position]);
+        Picasso.with(context).load(my_data.get(position).getFoto()).into(imageView);
         ((ViewPager) container).addView(imageView, 0);
 
         //Responsavel pelo efeito de Zoom

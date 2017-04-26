@@ -49,9 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:background="@color/colorTuristandoAzul"
-            app:tabIndicatorColor="@android:color/white"
-            app:tabSelectedTextColor="@android:color/white"
-            app:tabTextColor="@color/colorAccent" />
+            app:tabIndicatorColor="@color/colorTuristandoBranco"
+            app:tabIndicatorHeight="3dp"
+            app:tabSelectedTextColor="@color/colorTuristandoBranco"
+            app:tabTextColor="@color/colorTuristandoAzulEscuro" />
 
     </android.support.design.widget.AppBarLayout>
 

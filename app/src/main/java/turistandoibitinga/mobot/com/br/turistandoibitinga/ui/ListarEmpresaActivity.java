@@ -146,7 +146,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://192.168.1.36/wsturistandoibitinga/ws_listagemempresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/listagem_empresa.php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -158,7 +158,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
 
                         EmpresaData data = new EmpresaData(object.getInt("id"),
                                 object.getString("nome"),
-                                object.getString("foto_capa_otimizada"),
+                                object.getString("foto_capa_ot"),
                                 object.getString("descricao"));
                         data_list.add(data);
                     }
@@ -191,7 +191,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
         Intent i = new Intent(this, DetalhesEmpresaActivity.class);
         i.putExtra("id", Integer.toString(data_list.get(position).getId()));
         i.putExtra("descricao",  data_list.get(position).getDescricao());
-        i.putExtra("foto_capa_otimizada", data_list.get(position).getFoto_capa_otimizada());
+        i.putExtra("foto_capa_ot", data_list.get(position).getFoto_capa_otimizada());
         startActivity(i);
     }
 
