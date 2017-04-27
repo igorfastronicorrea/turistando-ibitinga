@@ -12,9 +12,9 @@
         <ImageView
             android:id="@+id/fotosEmpresa"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="100dp"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="2dp"
             android:layout_marginTop="5dp"
             android:layout_weight="2"
             android:scaleType="fitXY"

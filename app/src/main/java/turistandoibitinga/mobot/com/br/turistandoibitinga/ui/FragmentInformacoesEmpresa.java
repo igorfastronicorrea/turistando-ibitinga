@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,9 @@ public class FragmentInformacoesEmpresa extends Fragment {
             txtTel2DetalhesEmpresa, txtHorarioDetalhesEmpresa, txtEnderecoDetalhesEmpresa;
     private ImageView facebookDetalhesEmpresa, instagramDetalhesEmpresa, whatsDetalhesEmpresa;
     private String idEmpresa, nome, face, faceid, insta, whats, site, email, tel1, tel2, horario, endereco, lat, log;
+    private View view_site;
+    private ImageView ic_siteDetalhesEmpresa;
+    private LinearLayout layout_site;
 
     MapView mMapView;
     private GoogleMap googleMap;
@@ -79,6 +83,11 @@ public class FragmentInformacoesEmpresa extends Fragment {
         txtHorarioDetalhesEmpresa = (TextView) v.findViewById(R.id.txtHorarioDetalhesEmpresa);
         txtEnderecoDetalhesEmpresa = (TextView) v.findViewById(R.id.txtEnderecoDetalhesEmpresa);
 
+        layout_site = (LinearLayout) v.findViewById(R.id.layout_site);
+
+        ic_siteDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_siteDetalhesEmpresa);
+
+        view_site = (View) v.findViewById(R.id.view_site);
 
         facebookDetalhesEmpresa = (ImageView) v.findViewById(R.id.facebookDetalhesEmpresa);
         whatsDetalhesEmpresa    = (ImageView) v.findViewById(R.id.whatsDetalhesEmpresa);
@@ -93,9 +102,9 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
 
         mMapView = (MapView) v.findViewById(R.id.mapView);
-       // mMapView.onCreate(savedInstanceState);
+        mMapView.onCreate(savedInstanceState);
 
-        //mMapView.onResume(); // needed to get the map to display immediately
+        mMapView.onResume(); // needed to get the map to display immediately
 
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
@@ -153,8 +162,26 @@ public class FragmentInformacoesEmpresa extends Fragment {
             @Override
             protected void onPostExecute(Void aVoid) {
 
-                txtNomeDetalhesEmpresa.setText(nome);
-                txtSiteDetalhesEmpresa.setText(site);
+                if(nome != null){
+                    txtNomeDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    txtNomeDetalhesEmpresa.setText(nome);
+                }
+
+                if(site != "null"){
+                    layout_site.setVisibility(View.VISIBLE);
+                    txtSiteDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    ic_siteDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    view_site.setVisibility(View.VISIBLE);
+                    txtSiteDetalhesEmpresa.setText(site);
+
+                    txtSiteDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://"+site.toString()+"/")));
+                        }
+                    });
+                }
+
                 txtEmailDetalhesEmpresa.setText(email);
                 txtTel1DetalhesEmpresa.setText(tel1);
                 txtTel2DetalhesEmpresa.setText(tel2);
@@ -231,12 +258,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
 
                 //Demais informações - site, email, telefone, horario, endereço
-                txtSiteDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://"+site.toString()+"/")));
-                    }
-                });
+
 
                 txtEmailDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -276,15 +298,25 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         googleMap.setMyLocationEnabled(false);
 
                         // For dropping a marker at a point on the Map
-                        LatLng sydney = new LatLng(Double.parseDouble(lat), Double.parseDouble(log));
-                        googleMap.addMarker(new MarkerOptions().position(sydney).title(nome));
+                        LatLng local = new LatLng(Double.parseDouble(lat), Double.parseDouble(log));
+                        googleMap.addMarker(new MarkerOptions().position(local).title(nome));
 
                         // For zooming automatically to the location of the marker
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(sydney).zoom(15).build();
+                        CameraPosition cameraPosition = new CameraPosition.Builder().target(local).zoom(15).build();
                         googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                     }
                 });
 
+
+                //chama o app Google maps ao clicar sobre o endereço
+                txtEnderecoDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse("geo:<"+ lat + ">,<" + log + ">?q=<" + lat + ">,<" + log + ">(" + nome + ")" ));
+                        startActivity(intent);
+                    }
+                });
             }
         };
 
@@ -317,24 +349,24 @@ public class FragmentInformacoesEmpresa extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-//        mMapView.onResume();
+        mMapView.onResume();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        //mMapView.onPause();
+        mMapView.onPause();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-       // mMapView.onDestroy();
+        mMapView.onDestroy();
     }
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-      //  mMapView.onLowMemory();
+        mMapView.onLowMemory();
     }
 }
 
