@@ -52,9 +52,9 @@ public class FragmentInformacoesEmpresa extends Fragment {
             txtTel2DetalhesEmpresa, txtHorarioDetalhesEmpresa, txtEnderecoDetalhesEmpresa;
     private ImageView facebookDetalhesEmpresa, instagramDetalhesEmpresa, whatsDetalhesEmpresa;
     private String idEmpresa, nome, face, faceid, insta, whats, site, email, tel1, tel2, horario, endereco, lat, log;
-    private View view_site;
     private ImageView ic_siteDetalhesEmpresa;
-    private LinearLayout layout_site;
+    private View view_site, view_email, view_tel1, view_tel2, view_horario, view_endereco,view_redessociais;
+    private LinearLayout layout_site,layout_email, layout_tel1, layout_tel2, layout_horario, layout_endereco;
 
     MapView mMapView;
     private GoogleMap googleMap;
@@ -83,11 +83,24 @@ public class FragmentInformacoesEmpresa extends Fragment {
         txtHorarioDetalhesEmpresa = (TextView) v.findViewById(R.id.txtHorarioDetalhesEmpresa);
         txtEnderecoDetalhesEmpresa = (TextView) v.findViewById(R.id.txtEnderecoDetalhesEmpresa);
 
-        layout_site = (LinearLayout) v.findViewById(R.id.layout_site);
 
         ic_siteDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_siteDetalhesEmpresa);
 
+
+        layout_site = (LinearLayout) v.findViewById(R.id.layout_site);
+        layout_email = (LinearLayout) v.findViewById(R.id.layout_email);
+        layout_tel1 = (LinearLayout) v.findViewById(R.id.layout_tel1);
+        layout_tel2 = (LinearLayout) v.findViewById(R.id.layout_tel2);
+        layout_horario = (LinearLayout) v.findViewById(R.id.layout_horario);
+        layout_endereco = (LinearLayout) v.findViewById(R.id.layout_endereco);
+
         view_site = (View) v.findViewById(R.id.view_site);
+        view_email = (View) v.findViewById(R.id.view_email);
+        view_tel1 = (View) v.findViewById(R.id.view_tel1);
+        view_tel2 = (View) v.findViewById(R.id.view_tel2);
+        view_horario = (View) v.findViewById(R.id.view_horario);
+        view_endereco = (View) v.findViewById(R.id.view_endereco);
+        view_redessociais = (View) v.findViewById(R.id.view_redessociais);
 
         facebookDetalhesEmpresa = (ImageView) v.findViewById(R.id.facebookDetalhesEmpresa);
         whatsDetalhesEmpresa    = (ImageView) v.findViewById(R.id.whatsDetalhesEmpresa);
@@ -182,141 +195,181 @@ public class FragmentInformacoesEmpresa extends Fragment {
                     });
                 }
 
-                txtEmailDetalhesEmpresa.setText(email);
-                txtTel1DetalhesEmpresa.setText(tel1);
-                txtTel2DetalhesEmpresa.setText(tel2);
-                txtHorarioDetalhesEmpresa.setText(horario);
-                txtEnderecoDetalhesEmpresa.setText(endereco);
+                if(email != "null"){
+                    layout_email.setVisibility(View.VISIBLE);
+                    view_site.setVisibility(View.VISIBLE);
+                    txtEmailDetalhesEmpresa.setText(email);
 
+                    txtEmailDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_SEND);
+                            intent.setType("text/plain");
+                            intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
+                            startActivity(Intent.createChooser(intent, ""));
+                        }
+                    });
+                }
+
+
+                if(tel1 != "null"){
+                    layout_tel1.setVisibility(View.VISIBLE);
+                    view_tel1.setVisibility(View.VISIBLE);
+                    txtTel1DetalhesEmpresa.setText(tel1);
+
+                    txtTel1DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                            callIntent.setData(Uri.parse("tel:"+tel1));
+                            startActivity(callIntent );
+                        }
+                    });
+                }
+
+
+                if(tel2 != "null"){
+                    layout_tel2.setVisibility(View.VISIBLE);
+                    view_tel2.setVisibility(View.VISIBLE);
+                    txtTel2DetalhesEmpresa.setText(tel2);
+
+                    txtTel2DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent callIntent = new Intent(Intent.ACTION_DIAL);
+                            callIntent.setData(Uri.parse("tel:"+tel2));
+                            startActivity(callIntent );
+                        }
+                    });
+                }
+
+                if(horario != "null"){
+                    layout_horario.setVisibility(View.VISIBLE);
+                    view_horario.setVisibility(View.VISIBLE);
+                    txtHorarioDetalhesEmpresa.setText(horario);
+                }
+
+                if(endereco != "null"){
+                    layout_endereco.setVisibility(View.VISIBLE);
+                    view_endereco.setVisibility(View.VISIBLE);
+                    txtEnderecoDetalhesEmpresa.setText(endereco);
+
+                    //chama o app Google maps ao clicar sobre o endereço
+                    txtEnderecoDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW);
+                            intent.setData(Uri.parse("geo:<"+ lat + ">,<" + log + ">?q=<" + lat + ">,<" + log + ">(" + nome + ")" ));
+                            startActivity(intent);
+                        }
+                    });
+
+                    mMapView.setVisibility(View.VISIBLE);
+
+                    mMapView.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(GoogleMap mMap) {
+                            googleMap = mMap;
+
+                            // For showing a move to my location button
+                            googleMap.setMyLocationEnabled(false);
+
+                            // For dropping a marker at a point on the Map
+                            LatLng local = new LatLng(Double.parseDouble(lat), Double.parseDouble(log));
+                            googleMap.addMarker(new MarkerOptions().position(local).title(nome));
+
+                            // For zooming automatically to the location of the marker
+                            CameraPosition cameraPosition = new CameraPosition.Builder().target(local).zoom(15).build();
+                            googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                        }
+                    });
+
+                }
 
                 //Redes Sociais - Facebook
-                facebookDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                if(face != "null"){
+                    facebookDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    view_redessociais.setVisibility(View.VISIBLE);
 
-                        try {
-                            getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
-                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + faceid));
-                            startActivity(intent);
-                        } catch (Exception e) {
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/" + face)));
+                    facebookDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+                            try {
+                                getContext().getPackageManager().getPackageInfo("com.facebook.katana", 0);
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("fb://page/" + faceid));
+                                startActivity(intent);
+                            } catch (Exception e) {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.facebook.com/" + face)));
+                            }
+
                         }
+                    });
 
-                    }
-                });
+                }
 
                 //instagram
-                instagramDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
-                        Intent instagram = new Intent(Intent.ACTION_VIEW, uri);
-                        instagram.setPackage("com.instagram.android");
+                if(insta != "null"){
+                    instagramDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    view_redessociais.setVisibility(View.VISIBLE);
 
-                        if (isIntentAvailable(getContext(), instagram)){
-                            startActivity(instagram);
-                        } else{
-                            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/"+insta)));
+                    instagramDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
+                            Intent instagram = new Intent(Intent.ACTION_VIEW, uri);
+                            instagram.setPackage("com.instagram.android");
+
+                            if (isIntentAvailable(getContext(), instagram)){
+                                startActivity(instagram);
+                            } else{
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/"+insta)));
+                            }
+
                         }
+                    });
+                }
 
-                    }
-                });
 
                 //WhatsApp
-                whatsDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                if(whats != "null"){
+                    whatsDetalhesEmpresa.setVisibility(View.VISIBLE);
+                    view_redessociais.setVisibility(View.VISIBLE);
 
-                        if (!whats.equals("null")) {
-                            if (!contatoExiste(whats)) {
-                                ContentValues cv = new ContentValues();
-                                cv.put(Contacts.People.NAME, nome);
-                                Uri u = getActivity().getContentResolver().insert(Contacts.People.CONTENT_URI, cv);
-                                Uri pathu = Uri.withAppendedPath(u, Contacts.People.Phones.CONTENT_DIRECTORY);
-                                cv.clear();
-                                cv.put(Contacts.People.NUMBER, whats);
-                                getActivity().getContentResolver().insert(pathu, cv);
-                                Toast.makeText(getActivity().getApplicationContext(), "Contato Adicionado", Toast.LENGTH_LONG).show();
+                    whatsDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
 
-                                long start = new Date().getTime();
-                                while (new Date().getTime() - start < 1500L) {
+                            if (!whats.equals("null")) {
+                                if (!contatoExiste(whats)) {
+                                    ContentValues cv = new ContentValues();
+                                    cv.put(Contacts.People.NAME, nome);
+                                    Uri u = getActivity().getContentResolver().insert(Contacts.People.CONTENT_URI, cv);
+                                    Uri pathu = Uri.withAppendedPath(u, Contacts.People.Phones.CONTENT_DIRECTORY);
+                                    cv.clear();
+                                    cv.put(Contacts.People.NUMBER, whats);
+                                    getActivity().getContentResolver().insert(pathu, cv);
+                                    Toast.makeText(getActivity().getApplicationContext(), "Contato Adicionado", Toast.LENGTH_LONG).show();
+
+                                    long start = new Date().getTime();
+                                    while (new Date().getTime() - start < 1500L) {
+                                    }
+
+                                    Uri uri = Uri.parse("smsto:" + whats);
+                                    Intent iu = new Intent(Intent.ACTION_SENDTO, uri);
+                                    iu.setPackage("com.whatsapp");
+                                    startActivity(Intent.createChooser(iu, ""));
+                                } else {
+                                    Uri uri = Uri.parse("smsto:" + whats);
+                                    Intent iu = new Intent(Intent.ACTION_SENDTO, uri);
+                                    iu.setPackage("com.whatsapp");
+                                    startActivity(Intent.createChooser(iu, ""));
                                 }
-
-                                Uri uri = Uri.parse("smsto:" + whats);
-                                Intent iu = new Intent(Intent.ACTION_SENDTO, uri);
-                                iu.setPackage("com.whatsapp");
-                                startActivity(Intent.createChooser(iu, ""));
-                            } else {
-                                Uri uri = Uri.parse("smsto:" + whats);
-                                Intent iu = new Intent(Intent.ACTION_SENDTO, uri);
-                                iu.setPackage("com.whatsapp");
-                                startActivity(Intent.createChooser(iu, ""));
                             }
                         }
-                    }
-                });
+                    });
+                }
 
-
-                //Demais informações - site, email, telefone, horario, endereço
-
-
-                txtEmailDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_SEND);
-                        intent.setType("text/plain");
-                        intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
-                        startActivity(Intent.createChooser(intent, ""));
-                    }
-                });
-
-                txtTel1DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                        callIntent.setData(Uri.parse("tel:"+tel1));
-                        startActivity(callIntent );
-                    }
-                });
-
-                txtTel2DetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                        callIntent.setData(Uri.parse("tel:"+tel2));
-                        startActivity(callIntent );
-                    }
-                });
-
-
-                mMapView.getMapAsync(new OnMapReadyCallback() {
-                    @Override
-                    public void onMapReady(GoogleMap mMap) {
-                        googleMap = mMap;
-
-                        // For showing a move to my location button
-                        googleMap.setMyLocationEnabled(false);
-
-                        // For dropping a marker at a point on the Map
-                        LatLng local = new LatLng(Double.parseDouble(lat), Double.parseDouble(log));
-                        googleMap.addMarker(new MarkerOptions().position(local).title(nome));
-
-                        // For zooming automatically to the location of the marker
-                        CameraPosition cameraPosition = new CameraPosition.Builder().target(local).zoom(15).build();
-                        googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-                    }
-                });
-
-
-                //chama o app Google maps ao clicar sobre o endereço
-                txtEnderecoDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(Intent.ACTION_VIEW);
-                        intent.setData(Uri.parse("geo:<"+ lat + ">,<" + log + ">?q=<" + lat + ">,<" + log + ">(" + nome + ")" ));
-                        startActivity(intent);
-                    }
-                });
             }
         };
 

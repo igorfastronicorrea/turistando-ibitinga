@@ -18,10 +18,10 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="15dp"
-            android:visibility="gone"
             android:gravity="center"
             android:text="Igor Bordados"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:visibility="gone" />
 
 
         <View
@@ -49,6 +49,7 @@
                     android:id="@+id/facebookDetalhesEmpresa"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:visibility="gone"
                     android:layout_weight="2"
                     android:src="@drawable/icon_face" />
 
@@ -56,6 +57,7 @@
                     android:id="@+id/instagramDetalhesEmpresa"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:visibility="gone"
                     android:layout_weight="2"
                     android:src="@drawable/icon_insta" />
 
@@ -63,6 +65,7 @@
                 <ImageView
                     android:id="@+id/whatsDetalhesEmpresa"
                     android:layout_width="60dp"
+                    android:visibility="gone"
                     android:layout_height="60dp"
                     android:layout_weight="2"
                     android:src="@drawable/icon_whats" />
@@ -73,66 +76,69 @@
 
         <View
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="1dp"
+            android:id="@+id/view_redessociais"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
-            android:layout_width="match_parent"
             android:id="@+id/layout_site"
-            android:visibility="gone"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_siteDetalhesEmpresa"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:visibility="gone"
-                android:tint="@color/colorTuristandoAzul"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="15dp"
-                android:src="@drawable/ic_web_grey" />
+                android:src="@drawable/ic_web_grey"
+                android:tint="@color/colorTuristandoAzul"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/txtSiteDetalhesEmpresa"
                 android:layout_width="match_parent"
-                android:visibility="gone"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:text="www.juma.com.br"
                 android:textColor="@color/cardview_dark_background"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                android:visibility="gone" />
         </LinearLayout>
 
         <View
+            android:id="@+id/view_site"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:id="@+id/view_site"
-            android:visibility="gone"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/layout_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_emailDetalhesEmpresa"
                 android:layout_width="25dp"
-
-                android:tint="@color/colorTuristandoAzul"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="15dp"
-                android:src="@drawable/ic_email_grey" />
+                android:src="@drawable/ic_email_grey"
+                android:tint="@color/colorTuristandoAzul" />
 
             <TextView
                 android:id="@+id/txtEmailDetalhesEmpresa"
@@ -145,27 +151,31 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/view_email"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/layout_tel1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_tel1DetalhesEmpresa"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:tint="@color/colorTuristandoAzul"
                 android:layout_marginStart="15dp"
-                android:src="@drawable/ic_phone_grey" />
+                android:src="@drawable/ic_phone_grey"
+                android:tint="@color/colorTuristandoAzul" />
 
             <TextView
                 android:id="@+id/txtTel1DetalhesEmpresa"
@@ -178,17 +188,21 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/view_tel1"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:id="@+id/layout_tel2"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
@@ -197,8 +211,8 @@
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="15dp"
-                android:tint="@color/colorTuristandoAzul"
-                android:src="@drawable/ic_phone_grey" />
+                android:src="@drawable/ic_phone_grey"
+                android:tint="@color/colorTuristandoAzul" />
 
             <TextView
                 android:id="@+id/txtTel2DetalhesEmpresa"
@@ -211,17 +225,21 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/view_tel2"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="70dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
+            android:visibility="gone"
             android:background="@android:color/darker_gray" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/layout_horario"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
             android:orientation="horizontal">
 
             <ImageView
@@ -229,9 +247,9 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:tint="@color/colorTuristandoAzul"
                 android:layout_marginStart="15dp"
-                android:src="@drawable/ic_clock_grey600" />
+                android:src="@drawable/ic_clock_grey600"
+                android:tint="@color/colorTuristandoAzul" />
 
             <TextView
                 android:id="@+id/txtHorarioDetalhesEmpresa"
@@ -247,6 +265,8 @@
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="70dp"
+            android:visibility="gone"
+            android:id="@+id/view_horario"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
@@ -255,6 +275,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:visibility="gone"
+            android:id="@+id/layout_endereco"
             android:orientation="horizontal">
 
             <ImageView
@@ -262,9 +284,9 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_marginLeft="10dp"
-                android:tint="@color/colorTuristandoAzul"
                 android:layout_marginStart="15dp"
-                android:src="@drawable/ic_map_marker_grey" />
+                android:src="@drawable/ic_map_marker_grey"
+                android:tint="@color/colorTuristandoAzul" />
 
 
             <TextView
@@ -280,7 +302,9 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
+            android:visibility="gone"
             android:layout_marginLeft="70dp"
+            android:id="@+id/view_endereco"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
             android:background="@android:color/darker_gray" />
@@ -288,6 +312,7 @@
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
 

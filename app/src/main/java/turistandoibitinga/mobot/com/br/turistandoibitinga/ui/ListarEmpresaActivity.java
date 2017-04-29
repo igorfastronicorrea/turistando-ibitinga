@@ -15,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -52,12 +51,26 @@ public class ListarEmpresaActivity extends AppCompatActivity
     private CustomAdapterListarEmpresa adapter;
     private List<EmpresaData> data_list;
 
+    //private String //nomeSlide, foto_slide;
+
+    private String[] nome_slide = new String[]{"a","b","c"};
+    private String[] foto_slide = new String[]{"a", "b", "c"};
+    private String[] id_slide = new String[]{"a", "b", "c"};
+    private String[] id_empresa = new String[]{"a", "b", "c"};
+    private String[] foto_capa_ot = new String[]{"a", "b", "c"};
+    private String[] descricao_empresa = new String[]{"a", "b", "c"};
+    private String[] nome_empresa = new String[]{"a", "b", "c"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_listar_empresa);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarListarEmpresa);
         setSupportActionBar(toolbar);
+
+        //Inicializando Slider
+        mDemoSlider = (SliderLayout)findViewById(slider);
+        carregaSlide(0);
 
         //Defini quando o scroll rola fica o nome da Categoria da Empresa
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
@@ -83,35 +96,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
         });
 
 
-        //Inicializando Slider
-        mDemoSlider = (SliderLayout)findViewById(slider);
-        HashMap<String,String> url_maps = new HashMap<String, String>();
-        url_maps.put("Hannibal", "http://static2.hypable.com/wp-content/uploads/2013/12/hannibal-season-2-release-date.jpg");
-        url_maps.put("Big Bang Theory", "http://tvfiles.alphacoders.com/100/hdclearart-10.png");
-        url_maps.put("House of Cards", "http://cdn3.nflximg.net/images/3093/2043093.jpg");
-        url_maps.put("Game of Thrones", "http://images.boomsbeat.com/data/images/full/19640/game-of-thrones-season-4-jpg.jpg");
-
-        for(String name : url_maps.keySet()){
-            TextSliderView textSliderView = new TextSliderView(this);
-            // initialize a SliderLayout
-            textSliderView
-                    .description(name)
-                    .image(url_maps.get(name))
-                    .setScaleType(BaseSliderView.ScaleType.Fit)
-                    .setOnSliderClickListener(this);
-
-            //add your extra information
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra",name);
-
-            mDemoSlider.addSlider(textSliderView);
-        }
-        mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
-        mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        mDemoSlider.setCustomAnimation(new DescriptionAnimation());
-        mDemoSlider.setDuration(4000);
-        mDemoSlider.addOnPageChangeListener(this);
 
 
         //Listagem das empresas
@@ -182,6 +166,77 @@ public class ListarEmpresaActivity extends AppCompatActivity
         task.execute(id);
     }
 
+    private void carregaSlide(int id) {
+
+        AsyncTask<Integer, Void, Void> task = new AsyncTask<Integer, Void, Void>() {
+            @Override
+            protected Void doInBackground(Integer... integers) {
+
+                OkHttpClient cliente = new OkHttpClient();
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/slide_listagem_camamesabanho.php")
+                        .build();
+                try {
+                    Response response = cliente.newCall(request).execute();
+
+                    JSONArray array = new JSONArray(response.body().string());
+
+                    for (int i = 0; i < array.length(); i++) {
+                        JSONObject objectSlide = array.getJSONObject(i);
+                        id_slide[i] = objectSlide.getString("id");
+                        id_empresa[i] = objectSlide.getString("id_empresa");
+                        nome_slide[i] = objectSlide.getString("nome_empresa");
+                        foto_slide[i] = objectSlide.getString("foto_slide");
+                        foto_capa_ot[i] = objectSlide.getString("foto_capa_ot");
+                        nome_empresa[i] = objectSlide.getString("nome_empresa");
+                        descricao_empresa[i] = objectSlide.getString("descricao_empresa");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                return null;
+            }
+
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                //progressBar.setVisibility(View.GONE);
+
+                HashMap<String,String> url_maps = new HashMap<String, String>();
+                url_maps.put(id_slide[0], foto_slide[0]);
+                url_maps.put(id_slide[1], foto_slide[1]);
+                url_maps.put(id_slide[2], foto_slide[2]);
+
+
+                for(String name : url_maps.keySet()){
+                    TextSliderView textSliderView = new TextSliderView(ListarEmpresaActivity.this);
+                    // initialize a SliderLayout
+                    textSliderView
+                           // .description(name)
+                            .image(url_maps.get(name))
+                            .setScaleType(BaseSliderView.ScaleType.Fit)
+                            .setOnSliderClickListener(ListarEmpresaActivity.this);
+
+                    //add your extra information
+                    textSliderView.bundle(new Bundle());
+                    textSliderView.getBundle()
+                            .putString("extra",name);
+
+                    mDemoSlider.addSlider(textSliderView);
+                }
+                mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+                mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+                mDemoSlider.setCustomAnimation(new DescriptionAnimation());
+                mDemoSlider.setDuration(4000);
+                mDemoSlider.addOnPageChangeListener(ListarEmpresaActivity.this);
+            }
+        };
+
+        task.execute(id);
+    }
+
 
     @Override
     public void onClickListener(View view, int position) {
@@ -227,9 +282,14 @@ public class ListarEmpresaActivity extends AppCompatActivity
         super.onStop();
     }
 
+    //OnClick do Slide
     @Override
     public void onSliderClick(BaseSliderView slider) {
-        Toast.makeText(this,slider.getBundle().get("extra") + "",Toast.LENGTH_SHORT).show();
+        Intent i = new Intent(this, DetalhesEmpresaActivity.class);
+        i.putExtra("id", id_empresa[0]);
+        i.putExtra("descricao",  descricao_empresa[0]);
+        i.putExtra("foto_capa_ot", foto_capa_ot[0]);
+        startActivity(i);
     }
 
 

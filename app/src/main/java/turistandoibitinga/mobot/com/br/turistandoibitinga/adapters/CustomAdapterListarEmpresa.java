@@ -12,9 +12,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-import turistandoibitinga.mobot.com.br.turistandoibitinga.model.EmpresaData;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListener;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.EmpresaData;
 
 /**
  * Created by mobot on 02/04/2017.
@@ -41,7 +41,8 @@ public class CustomAdapterListarEmpresa  extends RecyclerView.Adapter<CustomAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.description.setText(my_data.get(position).getNome());
+        holder.nome.setText(my_data.get(position).getNome());
+        holder.enderecoListarEmpresa.setText(my_data.get(position).getDescricao());
         Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizada()).resize(120, 60).into(holder.ivFoto);
     }
 
@@ -56,13 +57,14 @@ public class CustomAdapterListarEmpresa  extends RecyclerView.Adapter<CustomAdap
 
     public  class ViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView description;
+        public TextView nome, enderecoListarEmpresa;
         public ImageView ivFoto;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            description = (TextView) itemView.findViewById(R.id.nomeListarEmpresa);
+            nome = (TextView) itemView.findViewById(R.id.nomeListarEmpresa);
             ivFoto = (ImageView) itemView.findViewById(R.id.fotoListarEmpresa);
+            enderecoListarEmpresa = (TextView) itemView.findViewById(R.id.enderecoListarEmpresa);
 
             itemView.setOnClickListener(this);
         }
