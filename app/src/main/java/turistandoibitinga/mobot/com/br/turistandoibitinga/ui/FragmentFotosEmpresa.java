@@ -37,7 +37,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
     private LinearLayoutManager linearLayoutManager;
     private CustomAdapterFotosEmpresa adapter;
     private List<ImagemDataEmpresa> data_list;
-    String idEmpresa;
+    String idEmpresa, api_detalhes_foto_ot, api_detalhes_fotos;
 
     public FragmentFotosEmpresa() {
         // Required empty public constructor
@@ -63,6 +63,8 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
         //Recebe id da classe DetalhesEmpresa Activity
         final Bundle args = getArguments();
         idEmpresa = args.getString("id");
+        api_detalhes_foto_ot = args.getString("api_detalhes_foto_ot");
+        api_detalhes_fotos = args.getString("api_detalhes_fotos");
         carregaDados(Integer.parseInt(idEmpresa));
 
 
@@ -97,7 +99,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/detalhes_empresa_fotos.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_detalhes_foto_ot +".php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -143,6 +145,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
         String posicao = String.valueOf(position);
         i.putExtra("id", idEmpresa);
         i.putExtra("position", posicao);
+        i.putExtra("api_detalhes_fotos", api_detalhes_fotos);
         startActivity(i);
     }
 }

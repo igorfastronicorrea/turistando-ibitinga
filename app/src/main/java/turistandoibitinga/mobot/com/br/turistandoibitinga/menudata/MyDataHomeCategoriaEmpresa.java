@@ -8,7 +8,7 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 public class MyDataHomeCategoriaEmpresa {
 
-    public static String[] nameArray = {"Bebê", "Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho"};
+    public static String[] nameArray = {"Bebe", "Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho","Cama Mesa e Banho"};
 
     public static Integer[] drawableArray = {R.drawable.cat_bebe,
             R.drawable.cat_camamesabanho,

@@ -59,6 +59,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
     MapView mMapView;
     private GoogleMap googleMap;
 
+    private String api_detalhes;
 
 
     public FragmentInformacoesEmpresa() {
@@ -110,6 +111,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
         //Recebe id da classe DetalhesEmpresa Activity
         final Bundle args = getArguments();
         idEmpresa = args.getString("id");
+        api_detalhes = args.getString("api_detalhes");
         carregaDados(Integer.parseInt(idEmpresa));
 
 
@@ -137,7 +139,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/detalhes_empresa.php?id=" + id)
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_detalhes +".php?id=" + id)
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();

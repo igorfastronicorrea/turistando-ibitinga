@@ -51,7 +51,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
     private CustomAdapterListarEmpresa adapter;
     private List<EmpresaData> data_list;
 
-    //private String //nomeSlide, foto_slide;
+    private String api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
 
     private String[] nome_slide = new String[]{"a","b","c"};
     private String[] foto_slide = new String[]{"a", "b", "c"};
@@ -67,6 +67,15 @@ public class ListarEmpresaActivity extends AppCompatActivity
         setContentView(R.layout.act_listar_empresa);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarListarEmpresa);
         setSupportActionBar(toolbar);
+
+        //Recebe da Activity HomeActivity quando o usuário clica no menu
+        Intent intent = getIntent();
+        api_listagem = intent.getStringExtra("api_listagem");
+        api_slide = intent.getStringExtra("api_slide");
+        api_detalhes = intent.getStringExtra("api_detalhes");
+        api_detalhes_foto_ot = intent.getStringExtra("api_detalhes_foto_ot");
+        api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
+
 
         //Inicializando Slider
         mDemoSlider = (SliderLayout)findViewById(slider);
@@ -94,8 +103,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
                 }
             }
         });
-
-
 
 
         //Listagem das empresas
@@ -130,7 +137,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/listagem_empresa.php?id=" + integers[0])
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_listagem +".php?id=" + integers[0])
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -173,7 +180,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/slide_listagem_camamesabanho.php")
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_slide +".php")
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -247,6 +254,13 @@ public class ListarEmpresaActivity extends AppCompatActivity
         i.putExtra("id", Integer.toString(data_list.get(position).getId()));
         i.putExtra("descricao",  data_list.get(position).getDescricao());
         i.putExtra("foto_capa_ot", data_list.get(position).getFoto_capa_otimizada());
+
+        //envia a api correspondente
+        i.putExtra("api_slide", api_slide);
+        i.putExtra("api_detalhes", api_detalhes);
+        i.putExtra("api_detalhes_foto_ot", api_detalhes_foto_ot);
+        i.putExtra("api_detalhes_fotos", api_detalhes_fotos);
+
         startActivity(i);
     }
 
@@ -289,6 +303,13 @@ public class ListarEmpresaActivity extends AppCompatActivity
         i.putExtra("id", id_empresa[0]);
         i.putExtra("descricao",  descricao_empresa[0]);
         i.putExtra("foto_capa_ot", foto_capa_ot[0]);
+
+        //envia a api correspondente
+        i.putExtra("api_slide", api_slide);
+        i.putExtra("api_detalhes", api_detalhes);
+        i.putExtra("api_detalhes_foto_ot", api_detalhes_foto_ot);
+        i.putExtra("api_detalhes_fotos", api_detalhes_fotos);
+
         startActivity(i);
     }
 

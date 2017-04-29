@@ -47,12 +47,17 @@ public class ImageAdapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         //super.instantiateItem(container, position);
         ImageView imageView = new ImageView(context);
+
         Picasso.with(context).load(my_data.get(position).getFoto()).into(imageView);
+
+        PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
+        photoViewAttacher.update();
+
         ((ViewPager) container).addView(imageView, 0);
 
         //Responsavel pelo efeito de Zoom
-        PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
-        photoViewAttacher.update();
+        //PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
+        //photoViewAttacher.update();
 
         return imageView;
     }

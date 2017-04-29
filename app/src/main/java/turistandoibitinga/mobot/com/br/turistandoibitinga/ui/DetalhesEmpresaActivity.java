@@ -27,6 +27,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private String id, descricao, foto;
     private ImageView imgDetalhesEmpresa;
+    private String api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +36,18 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDetalhesEmpresa);
         setSupportActionBar(toolbar);
 
+
         //Recebe o id, foto da classe ListarEmpresaActivity que é o id da empresa que deve ser
         //enviado para os fragments
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         descricao = intent.getStringExtra("descricao");
         foto = intent.getStringExtra("foto_capa_ot");
+        api_listagem = intent.getStringExtra("api_listagem");
+        api_slide = intent.getStringExtra("api_slide");
+        api_detalhes = intent.getStringExtra("api_detalhes");
+        api_detalhes_foto_ot = intent.getStringExtra("api_detalhes_foto_ot");
+        api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
 
         //seta imagem da capa no fragment - todos
         imgDetalhesEmpresa = (ImageView) findViewById(R.id.imgDetalhesEmpresa);
@@ -127,6 +134,9 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
                 //Envia o id da empresa selecionada para o fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
+                bundle.putString("api_detalhes", api_detalhes);
+                bundle.putString("api_detalhes_foto_ot", api_detalhes_foto_ot);
+                bundle.putString("api_detalhes_fotos", api_detalhes_fotos);
                 mFragmentList.get(position).setArguments(bundle);
             }
 
@@ -135,6 +145,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
                 //Envia o id da empresa selecionada para o fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
+                bundle.putString("api_detalhes", api_detalhes);
                 mFragmentList.get(position).setArguments(bundle);
             }
 

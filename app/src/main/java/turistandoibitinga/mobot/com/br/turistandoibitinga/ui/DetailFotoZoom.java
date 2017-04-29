@@ -36,7 +36,7 @@ public class DetailFotoZoom extends AppCompatActivity {
     String foto1, foto2, foto3, foto4, foto5;
     private List<Fotos> data_list;
     private ImageAdapter adapter;
-    private String idEmpresa, position;
+    private String idEmpresa, position, api_detalhes_fotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +44,13 @@ public class DetailFotoZoom extends AppCompatActivity {
 
         //Esconde o StatusBar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.act_detalhes_foto_empresa);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_zoom);
         setSupportActionBar(toolbar);
+
 
         //Seta a seta (Button) Back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -65,14 +67,11 @@ public class DetailFotoZoom extends AppCompatActivity {
         Intent intent = getIntent();
         idEmpresa = intent.getStringExtra("id");
         position = intent.getStringExtra("position");
-
+        api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
 
         data_list = new ArrayList<>();
         carregaDados(Integer.parseInt(idEmpresa));
         adapter = new ImageAdapter(this, data_list);
-
-
-
 
     }
 
@@ -95,7 +94,7 @@ public class DetailFotoZoom extends AppCompatActivity {
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/detalhes_empresa_fotos.php?id=" + id)
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_detalhes_fotos +".php?id=" + id)
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();

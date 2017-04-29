@@ -107,9 +107,31 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onClickListener(View view, int position) {
-        Toast.makeText(this, "position" + position, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
-        startActivity(i);
+        switch (position){
+            case 0:
+                Intent bebe = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                bebe.putExtra("api_listagem", "listagem_empresa_bebe");
+                bebe.putExtra("api_slide", "slide_listagem_bebe");
+                bebe.putExtra("api_detalhes", "detalhes_empresa_bebe");
+                bebe.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bebe");
+                bebe.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bebe");
+                startActivity(bebe);
+                break;
+            case 1:
+                Intent camamesabanho = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                camamesabanho.putExtra("api_listagem", "listagem_empresa_camamesabanho");
+                camamesabanho.putExtra("api_slide", "slide_listagem_camamesabanho");
+                camamesabanho.putExtra("api_detalhes", "detalhes_empresa_camamesabanho");
+                camamesabanho.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_camamesabanho");
+                camamesabanho.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_camamesabanho");
+                startActivity(camamesabanho);
+
+                break;
+            default:
+                Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                startActivity(i);
+        }
+
     }
 
     @Override
