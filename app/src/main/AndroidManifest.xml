@@ -37,6 +37,9 @@
         <activity
             android:name=".ui.DetailFotoZoom"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.MenuFeiraDoBordadoActivity"
+            android:theme="@style/AppTheme.MenuFeira"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

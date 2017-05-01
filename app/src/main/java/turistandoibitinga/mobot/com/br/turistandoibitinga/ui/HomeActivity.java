@@ -13,6 +13,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -31,6 +32,9 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapter
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecycleViewOnClickListener, RecycleViewOnClickListenerRestaurante {
+
+    //Feira do Bordado
+    private ImageView menuFeiraDoBordado;
 
     //Categoria Empresa
     private RecyclerView recyclerView;
@@ -60,11 +64,18 @@ public class HomeActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-
         //
         //Começa aqui o meu código
         //
+
+        menuFeiraDoBordado = (ImageView) findViewById(R.id.menuFeiradoBordado);
+        menuFeiraDoBordado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent iMenuFeiraDoBordado = new Intent(HomeActivity.this, MenuFeiraDoBordadoActivity.class);
+                startActivity(iMenuFeiraDoBordado);
+            }
+        });
 
         //Departamentos Empresa
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_categoria_empresa);

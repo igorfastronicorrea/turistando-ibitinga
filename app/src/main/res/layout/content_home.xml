@@ -15,7 +15,7 @@
         android:weightSum="1">
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/menuFeiradoBordado"
             android:layout_width="match_parent"
             android:layout_height="148dp"
             android:layout_weight="0.05"
@@ -34,7 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/colorPrimary"
             android:scrollbars="vertical" />
 
         <TextView
@@ -48,7 +47,6 @@
             android:id="@+id/my_recycler_view_categoria_restaurante"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorAccent"
             android:orientation="horizontal"
             android:scrollbars="vertical" />
 

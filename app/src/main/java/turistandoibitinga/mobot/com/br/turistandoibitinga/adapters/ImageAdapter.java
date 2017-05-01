@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -48,12 +49,23 @@ public class ImageAdapter extends PagerAdapter {
         //super.instantiateItem(container, position);
         ImageView imageView = new ImageView(context);
 
-        Picasso.with(context).load(my_data.get(position).getFoto()).into(imageView);
+        final PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
 
-        PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
-        photoViewAttacher.update();
 
+        Picasso.with(context).load(my_data.get(position).getFoto()).into(imageView, new Callback() {
+            @Override
+            public void onSuccess() {
+                photoViewAttacher.update();
+            }
+
+            @Override
+            public void onError() {
+
+            }
+        });
         ((ViewPager) container).addView(imageView, 0);
+
+
 
         //Responsavel pelo efeito de Zoom
         //PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
