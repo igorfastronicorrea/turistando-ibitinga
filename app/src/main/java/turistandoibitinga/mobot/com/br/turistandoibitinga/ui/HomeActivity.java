@@ -121,6 +121,7 @@ public class HomeActivity extends AppCompatActivity
         switch (position){
             case 0:
                 Intent bebe = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                bebe.putExtra("nome_listagem", "Bebê");
                 bebe.putExtra("api_listagem", "listagem_empresa_bebe");
                 bebe.putExtra("api_slide", "slide_listagem_bebe");
                 bebe.putExtra("api_detalhes", "detalhes_empresa_bebe");
@@ -130,6 +131,7 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case 1:
                 Intent camamesabanho = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                camamesabanho.putExtra("nome_listagem", "Cama Mesa e Banho");
                 camamesabanho.putExtra("api_listagem", "listagem_empresa_camamesabanho");
                 camamesabanho.putExtra("api_slide", "slide_listagem_camamesabanho");
                 camamesabanho.putExtra("api_detalhes", "detalhes_empresa_camamesabanho");

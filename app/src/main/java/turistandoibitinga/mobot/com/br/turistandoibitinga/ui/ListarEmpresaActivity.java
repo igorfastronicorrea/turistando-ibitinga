@@ -15,6 +15,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
@@ -51,7 +52,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
     private CustomAdapterListarEmpresa adapter;
     private List<EmpresaData> data_list;
 
-    private String api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
+    private String nome_listagem, api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
 
     private String[] nome_slide = new String[]{"a","b","c"};
     private String[] foto_slide = new String[]{"a", "b", "c"};
@@ -61,6 +62,8 @@ public class ListarEmpresaActivity extends AppCompatActivity
     private String[] descricao_empresa = new String[]{"a", "b", "c"};
     private String[] nome_empresa = new String[]{"a", "b", "c"};
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,8 +71,15 @@ public class ListarEmpresaActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarListarEmpresa);
         setSupportActionBar(toolbar);
 
+        //Seta o ProgressBar como visible e vai ficar carregando até os dados serem totalmente carregados
+        //atraves do método onPostExecute
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.VISIBLE);
+
+
         //Recebe da Activity HomeActivity quando o usuário clica no menu
         Intent intent = getIntent();
+        nome_listagem = intent.getStringExtra("nome_listagem");
         api_listagem = intent.getStringExtra("api_listagem");
         api_slide = intent.getStringExtra("api_slide");
         api_detalhes = intent.getStringExtra("api_detalhes");
@@ -95,7 +105,8 @@ public class ListarEmpresaActivity extends AppCompatActivity
                     scrollRange = appBarLayout.getTotalScrollRange();
                 }
                 if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbarLayout.setTitle("Listar Empresas");
+                    collapsingToolbarLayout.setTitle(nome_listagem);
+                    collapsingToolbarLayout.setCollapsedTitleTextColor(getColor(R.color.colorTuristandoBranco));
                     isShow = true;
                 } else if(isShow) {
                     collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work
@@ -165,7 +176,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                //progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
             }
         };

@@ -39,12 +39,12 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.MenuFeiraDoBordadoActivity"
-            android:theme="@style/AppTheme.MenuFeira"></activity>
+            android:theme="@style/AppTheme.ActionBarBlck"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD1j-vQBoVti5g3wdFnKO3psDMfteJXqKM"/>
-            <!--android:value="AIzaSyDhkoDres7T9W7M_H8jpGE-zG7Hla7NmG4"/>-->
+            android:value="AIzaSyDhkoDres7T9W7M_H8jpGE-zG7Hla7NmG4"/>
+        <!--android:value="AIzaSyD1j-vQBoVti5g3wdFnKO3psDMfteJXqKM"/> -->
 
 
     </application>

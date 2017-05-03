@@ -1,8 +1,5 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
-import android.app.ActionBar;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -35,8 +32,6 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_menufeiradobordado);
-        ActionBar bar = getActionBar();
-        bar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#0000ff")));
 
         //Menu Feira | Pavilhão A, Pavilhão B .... etc
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_menu_feiradobordado);
