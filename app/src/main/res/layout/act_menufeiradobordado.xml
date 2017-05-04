@@ -4,6 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarMenuFeira"
+        android:layout_width="match_parent"
+        android:title="Feira do Bordado"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view_menu_feiradobordado"
         android:layout_width="match_parent"

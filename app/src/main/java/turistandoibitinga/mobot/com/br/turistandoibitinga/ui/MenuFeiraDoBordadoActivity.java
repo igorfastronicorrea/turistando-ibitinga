@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
@@ -32,6 +33,12 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_menufeiradobordado);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMenuFeira);
+        setSupportActionBar(toolbar);
+
+        toolbar.setTitleTextColor(getColor(R.color.colorTuristandoBranco));
+        toolbar.setTitle("Feira do Bordado");
 
         //Menu Feira | Pavilhão A, Pavilhão B .... etc
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_menu_feiradobordado);

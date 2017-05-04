@@ -39,7 +39,8 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.MenuFeiraDoBordadoActivity"
-            android:theme="@style/AppTheme.ActionBarBlck"></activity>
+            android:label="Feira do Bordado"
+            android:theme="@style/CustomActionBarTheme"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
