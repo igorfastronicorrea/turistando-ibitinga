@@ -29,11 +29,11 @@
         <activity
             android:name=".ui.ListarEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBarListarEmpresasBlack" />
         <activity
             android:name=".ui.DetalhesEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
         <activity
             android:name=".ui.DetailFotoZoom"
             android:theme="@style/AppTheme.NoActionBar"></activity>
@@ -41,6 +41,14 @@
             android:name=".ui.MenuFeiraDoBordadoActivity"
             android:label="Feira do Bordado"
             android:theme="@style/CustomActionBarTheme"></activity>
+        <activity
+            android:name=".ui.ComoChegarFeiraMapActivity"
+            android:label="Como Chegar"
+            android:theme="@style/ComoChegar"></activity>
+        <activity
+            android:name=".ui.FotoPavilhaoActivity"
+            android:label="Feira do Bordado"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

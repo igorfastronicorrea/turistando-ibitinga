@@ -5,12 +5,46 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">@color/colorTuristandoBranco</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
 
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorTuristandoBranco</item>
+    </style>
+
     <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="ComoChegar" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="colorPrimary">@color/colorTuristandoVerde</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoVerde</item>
+        <item name="colorAccent">@color/colorTuristandoVerde</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBarListarEmpresasBlack">
+        <item name="colorPrimary">@color/colorTuristandoAzul</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoAzul</item>
+        <item name="colorAccent">@color/colorTuristandoAzul</item>
+        <item name="colorControlNormal">@color/colorTuristandoBranco</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.NoActionBarDetalhesEmpresaAzul">
+        <item name="colorPrimary">@color/colorTuristandoAzul</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoAzul</item>
+        <item name="colorAccent">@color/colorTuristandoAzul</item>
+        <item name="colorControlNormal">@color/colorTuristandoAzul</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>

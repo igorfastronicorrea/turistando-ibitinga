@@ -76,6 +76,15 @@ public class ListarEmpresaActivity extends AppCompatActivity
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         progressBar.setVisibility(View.VISIBLE);
 
+        //Seta a seta (Button) Back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         //Recebe da Activity HomeActivity quando o usuário clica no menu
         Intent intent = getIntent();

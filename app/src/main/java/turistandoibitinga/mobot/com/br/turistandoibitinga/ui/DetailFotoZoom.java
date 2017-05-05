@@ -47,10 +47,8 @@ public class DetailFotoZoom extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.act_detalhes_foto_empresa);
 
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_zoom);
         setSupportActionBar(toolbar);
-
 
         //Seta a seta (Button) Back
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -1,5 +1,6 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -7,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +40,18 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
         toolbar.setTitleTextColor(getColor(R.color.colorTuristandoBranco));
         toolbar.setTitle("Feira do Bordado");
 
+        setSupportActionBar(toolbar);
+
+        //Seta a seta (Button) Back
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
         //Menu Feira | Pavilhão A, Pavilhão B .... etc
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_menu_feiradobordado);
         data_list = new ArrayList<>();
@@ -62,8 +74,36 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
 
     @Override
     public void onClickListener(View view, int position) {
-        Toast.makeText(this, "position" + position, Toast.LENGTH_LONG).show();
-        //Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+
+        switch (position){
+            case 0:
+                Intent a = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
+                a.putExtra("blocoPavilhao", "foto_pavilhao_a");
+                startActivity(a);
+                break;
+
+            case 1:
+                Intent b = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
+                b.putExtra("blocoPavilhao", "foto_pavilhao_b");
+                startActivity(b);
+                break;
+
+            case 2:
+                Intent c = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
+                c.putExtra("blocoPavilhao", "foto_pavilhao_c");
+                startActivity(c);
+                break;
+
+            //Mapa
+            case 3:
+                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, ComoChegarFeiraMapActivity.class);
+                startActivity(d);
+                break;
+
+        }
+
+        //Toast.makeText(this, "position" + position, Toast.LENGTH_LONG).show();
+        //Intent i = new Intent(MenuFeiraDoBordadoActivity.this, ComoChegarFeiraMapActivity.class);
         //startActivity(i);
     }
 }
