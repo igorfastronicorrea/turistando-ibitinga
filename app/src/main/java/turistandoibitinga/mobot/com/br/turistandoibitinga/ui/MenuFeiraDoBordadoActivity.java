@@ -76,28 +76,41 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
     public void onClickListener(View view, int position) {
 
         switch (position){
+            //pavilhao a
             case 0:
                 Intent a = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
                 a.putExtra("blocoPavilhao", "foto_pavilhao_a");
                 startActivity(a);
                 break;
-
+            //pavilhao b
             case 1:
                 Intent b = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
                 b.putExtra("blocoPavilhao", "foto_pavilhao_b");
                 startActivity(b);
                 break;
-
+            //pavilhao C
             case 2:
                 Intent c = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
                 c.putExtra("blocoPavilhao", "foto_pavilhao_c");
                 startActivity(c);
                 break;
 
-            //Mapa
+            //Agenda de Shows
             case 3:
-                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, ComoChegarFeiraMapActivity.class);
+                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, EventosActivity.class);
                 startActivity(d);
+                break;
+
+            //Como chegar
+            case 4:
+                Intent e = new Intent(MenuFeiraDoBordadoActivity.this, ComoChegarFeiraMapActivity.class);
+                startActivity(e);
+                break;
+
+            //Como contato
+            case 5:
+                Intent f = new Intent(MenuFeiraDoBordadoActivity.this, ContatoFeiraActivity.class);
+                startActivity(f);
                 break;
 
         }

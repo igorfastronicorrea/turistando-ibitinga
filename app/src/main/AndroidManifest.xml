@@ -49,6 +49,14 @@
             android:name=".ui.FotoPavilhaoActivity"
             android:label="Feira do Bordado"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.ContatoFeiraActivity"
+            android:label="Contato"
+            android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
+        <activity
+            android:name=".ui.EventosActivity"
+            android:label="@string/title_activity_detalhes_empresa"
+            android:theme="@style/AppTheme.NoActionBarEventosLaranja"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
