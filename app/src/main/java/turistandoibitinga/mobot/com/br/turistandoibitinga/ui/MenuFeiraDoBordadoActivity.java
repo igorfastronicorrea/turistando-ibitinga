@@ -97,7 +97,7 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
 
             //Agenda de Shows
             case 3:
-                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, EventosActivity.class);
+                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, ListarEventosActivity.class);
                 startActivity(d);
                 break;
 

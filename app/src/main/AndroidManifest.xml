@@ -57,6 +57,10 @@
             android:name=".ui.EventosActivity"
             android:label="@string/title_activity_detalhes_empresa"
             android:theme="@style/AppTheme.NoActionBarEventosLaranja"></activity>
+        <activity
+            android:name=".ui.ListarEventosActivity"
+            android:label="Eventos"
+            android:theme="@style/AppTheme.NoActionBarEventosLaranja" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
