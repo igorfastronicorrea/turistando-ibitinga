@@ -7,19 +7,49 @@ package turistandoibitinga.mobot.com.br.turistandoibitinga.model;
 public class EventoData {
 
     int id;
-    String nome, foto_capa, descricao;
+    String nome, foto_capa, descricao, lat, log, local_evento;
 
-    public EventoData(int id, String nome, String foto_capa, String descricao) {
+    public EventoData(int id, String nome, String foto_capa, String descricao, String lat, String log, String local_evento) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.foto_capa = foto_capa;
+        this.lat = lat;
+        this.log = log;
+        this.local_evento = local_evento;
     }
 
-    public EventoData(int id, String nome, String descricao) {
+    /*public EventoData(int id, String nome, String descricao, String lat, String log, String local_evento) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
+        this.lat = lat;
+        this.log = log;
+        this.local_evento = local_evento;
+    }*/
+
+    public String getLocal_evento() {
+        return local_evento;
+    }
+
+    public void setLocal_evento(String local_evento) {
+        this.local_evento = local_evento;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLog() {
+        return log;
+    }
+
+    public void setLog(String log) {
+        this.log = log;
     }
 
     public String getNome() {
