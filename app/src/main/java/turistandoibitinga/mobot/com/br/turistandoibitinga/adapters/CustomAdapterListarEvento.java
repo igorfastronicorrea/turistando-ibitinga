@@ -20,13 +20,13 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.model.EventoData;
  * Created by mobot on 02/04/2017.
  */
 
-public class CustomAdapterEvento extends RecyclerView.Adapter<CustomAdapterEvento.ViewHolder>{
+public class CustomAdapterListarEvento extends RecyclerView.Adapter<CustomAdapterListarEvento.ViewHolder>{
 
     private Context context;
     private List<EventoData> my_data;
     private RecycleViewOnClickListenerListarEventos recycleViewOnClickListener;
 
-    public CustomAdapterEvento(Context context, List<EventoData> my_data) {
+    public CustomAdapterListarEvento(Context context, List<EventoData> my_data) {
         this.context = context;
         this.my_data = my_data;
     }

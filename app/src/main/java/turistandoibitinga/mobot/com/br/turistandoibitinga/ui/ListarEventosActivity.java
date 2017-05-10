@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +24,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListenerListarEventos;
-import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterEvento;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterListarEvento;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.model.EventoData;
 
 /**
@@ -34,9 +35,9 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
 
     private RecyclerView recyclerView;
     private LinearLayoutManager linearLayoutManager;
-    private CustomAdapterEvento adapter;
+    private CustomAdapterListarEvento adapter;
     private List<EventoData> data_list;
-    private String api_evento;
+    private String api_evento, api_detalhes_evento;
     private ProgressBar progressBar;
 
     @Override
@@ -48,6 +49,7 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
 
         Intent intent = getIntent();
         api_evento = intent.getStringExtra("api_evento");
+        api_detalhes_evento = intent.getStringExtra("api_detalhes_evento");
 
         //Seta o ProgressBar como visible e vai ficar carregando até os dados serem totalmente carregados
         //atraves do método onPostExecute
@@ -70,7 +72,7 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
         carregaDados(0);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new CustomAdapterEvento(this, data_list);
+        adapter = new CustomAdapterListarEvento(this, data_list);
         adapter.setRecycleViewOnClickListener(this);
         recyclerView.setAdapter(adapter);
 
@@ -138,6 +140,7 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
     @Override
     public void onClickListener(View view, int position) {
 
+        Toast.makeText(this, "position:" + data_list.get(position).getId(), Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, EventosActivity.class);
         i.putExtra("id", Integer.toString(data_list.get(position).getId()));
         i.putExtra("nome", data_list.get(position).getNome());
@@ -145,7 +148,7 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
         i.putExtra("log", data_list.get(position).getLog());
         i.putExtra("local_evento", data_list.get(position).getLocal_evento());
         //envia a api correspondente
-        i.putExtra("api_evento", api_evento);
+        i.putExtra("api_detalhes_evento", api_detalhes_evento);
         startActivity(i);
     }
 }

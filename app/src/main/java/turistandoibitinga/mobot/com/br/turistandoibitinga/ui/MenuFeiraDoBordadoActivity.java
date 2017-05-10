@@ -98,7 +98,8 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
             //Agenda de Shows
             case 3:
                 Intent d = new Intent(MenuFeiraDoBordadoActivity.this, ListarEventosActivity.class);
-                d.putExtra("api_evento", "listar_eventos");//correspondente a feira do bordado
+                d.putExtra("api_evento", "listar_eventos_feira");//correspondente a feira do bordado
+                d.putExtra("api_detalhes_evento", "detalhes_eventos_feira");
                 startActivity(d);
                 break;
 
