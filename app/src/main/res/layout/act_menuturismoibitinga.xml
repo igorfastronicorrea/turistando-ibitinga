@@ -11,7 +11,7 @@
         android:title="Feira do Bordado"
         app:theme="@style/AppTheme"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary" />
+        android:background="@color/colorTuristandoRoxo" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/my_recycler_view_menu_turismoibitinga"

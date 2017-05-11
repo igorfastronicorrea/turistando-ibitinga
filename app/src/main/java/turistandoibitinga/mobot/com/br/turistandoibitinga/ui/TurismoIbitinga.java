@@ -33,7 +33,7 @@ public class TurismoIbitinga extends AppCompatActivity implements RecycleViewOnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.act_menuturismoibitinga);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMenuFeira);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarTurismoIbitinga);
         setSupportActionBar(toolbar);
 
         toolbar.setTitleTextColor(getColor(R.color.colorTuristandoBranco));
@@ -52,7 +52,7 @@ public class TurismoIbitinga extends AppCompatActivity implements RecycleViewOnC
         });
 
         //Menu Feira | Pavilhão A, Pavilhão B .... etc
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_menu_feiradobordado);
+        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view_menu_turismoibitinga);
         data_list = new ArrayList<>();
         for (int i = 0; i < MyDataTurismoIbitinga.nameArray.length; i++) {
             data_list.add(new DataModelTurismoIbitinga(
