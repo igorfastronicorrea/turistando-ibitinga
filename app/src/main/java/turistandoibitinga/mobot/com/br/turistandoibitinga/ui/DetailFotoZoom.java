@@ -70,7 +70,6 @@ public class DetailFotoZoom extends AppCompatActivity {
         data_list = new ArrayList<>();
         carregaDados(Integer.parseInt(idEmpresa));
         adapter = new ImageAdapter(this, data_list);
-
     }
 
     @Override

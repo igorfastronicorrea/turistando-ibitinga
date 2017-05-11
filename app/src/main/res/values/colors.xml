@@ -12,5 +12,6 @@
     <color name="colorTuristandoAzulBarra">#1a237e</color>
     <color name="colorTuristandoVerde">#188c04</color>
     <color name="colorTuristandoLaranja">#e06923</color>
-
+    <color name="colorTuristandoVioleta">#c90276</color>
+    <color name="colorTuristandoRoxo">#710077</color>
 </resources>

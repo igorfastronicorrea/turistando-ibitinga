@@ -205,11 +205,29 @@ public class EventosActivity extends AppCompatActivity {
                 if (foto1 != "null") {
                     Picasso.with(EventosActivity.this).load(foto1).into(imgFotoEvento1);
                     imgFotoEvento1.setVisibility(View.VISIBLE);
+
+                    imgFotoEvento1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent imagemFoto1 = new Intent(EventosActivity.this, DetailEventoZoom.class);
+                            imagemFoto1.putExtra("foto", foto1);
+                            startActivity(imagemFoto1);
+                        }
+                    });
                 }
 
                 if (foto2 != "null") {
                     Picasso.with(EventosActivity.this).load(foto2).into(imgFotoEvento2);
                     imgFotoEvento2.setVisibility(View.VISIBLE);
+
+                    imgFotoEvento2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent imagemFoto2 = new Intent(EventosActivity.this, DetailEventoZoom.class);
+                            imagemFoto2.putExtra("foto", foto2);
+                            startActivity(imagemFoto2);
+                        }
+                    });
                 }
 
                 if (facebook != "null") {
@@ -264,6 +282,7 @@ public class EventosActivity extends AppCompatActivity {
                             googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                         }
                     });
+
 
                 }
 

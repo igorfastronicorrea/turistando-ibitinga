@@ -33,8 +33,9 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapter
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecycleViewOnClickListener, RecycleViewOnClickListenerRestaurante {
 
-    //Feira do Bordado
+    //Feira do Bordado E TurismoIbitinga(O que fazer)
     private ImageView menuFeiraDoBordado;
+    private ImageView menuTurismoIbitinga;
 
     //Categoria Empresa
     private RecyclerView recyclerView;
@@ -113,6 +114,16 @@ public class HomeActivity extends AppCompatActivity
         adapterRestaurante = new CustomAdapterRestaurante(this, data_list_restaurante);
         adapterRestaurante.setRecycleViewOnClickListener(this);
         recyclerViewRestaurante.setAdapter(adapterRestaurante);
+
+
+        menuTurismoIbitinga = (ImageView) findViewById(R.id.menuTurismoIbitinga);
+        menuTurismoIbitinga.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent menuTurismoIbitnga = new Intent(HomeActivity.this, TurismoIbitinga.class);
+                startActivity(menuTurismoIbitnga);
+            }
+        });
 
     }
 

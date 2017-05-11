@@ -61,6 +61,13 @@
             android:name=".ui.ListarEventosActivity"
             android:label="Eventos"
             android:theme="@style/AppTheme.NoActionBarEventosLaranja" />
+        <activity
+            android:name=".ui.DetailEventoZoom"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ui.TurismoIbitinga"
+            android:label="O que fazer em Ibitinga?"
+            android:theme="@style/CustomActionBarThemeTurismoIbitinga"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

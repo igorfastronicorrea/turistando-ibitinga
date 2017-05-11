@@ -51,7 +51,7 @@
             android:scrollbars="vertical" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/menuTurismoIbitinga"
             android:layout_width="match_parent"
             android:layout_height="148dp"
             android:layout_weight="0.05"

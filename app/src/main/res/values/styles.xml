@@ -63,13 +63,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-
     </style>
-
-    <style name="ToolbarColoredBackArrow" parent="AppTheme">
-        <item name="android:textColorSecondary">@color/colorTuristandoBranco</item>
-    </style>
-
 
     <style name="MyActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
 
@@ -81,6 +75,32 @@
         <item name="android:background">@color/colorTuristandoAzul</item>
         <item name="background">@color/colorTuristandoAzul</item>
 
+    </style>
+
+    <style name="ToolbarColoredBackArrow" parent="AppTheme">
+        <item name="android:textColorSecondary">@color/colorTuristandoBranco</item>
+    </style>
+
+
+    <style name="CustomActionBarThemeTurismoIbitinga" parent="@style/Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBarTurismoIbitinga</item>
+        <item name="actionBarStyle">@style/MyActionBarTurismoIbitinga</item>
+        <item name="colorPrimary">@color/colorTuristandoRoxo</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoRoxo</item>
+        <item name="colorAccent">@color/colorTuristandoRoxo</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="MyActionBarTurismoIbitinga" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+
+        <item name="colorPrimary">@color/colorTuristandoRoxo</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoRoxo</item>
+        <item name="colorAccent">@color/colorTuristandoRoxo</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@color/colorTuristandoRoxo</item>
+        <item name="background">@color/colorTuristandoRoxo</item>
     </style>
 
 
