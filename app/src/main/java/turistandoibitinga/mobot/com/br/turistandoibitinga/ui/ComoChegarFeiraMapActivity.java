@@ -1,6 +1,8 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -34,7 +36,8 @@ public class ComoChegarFeiraMapActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMenuFeiraComoChegar);
         setSupportActionBar(toolbar);
 
-        toolbar.setTitleTextColor(getColor(R.color.colorTuristandoBranco));
+        Context context = ComoChegarFeiraMapActivity.this;
+        toolbar.setTitleTextColor( ContextCompat.getColor(context, R.color.colorTuristandoBranco));
         toolbar.setTitle("Como Chegar");
 
         setSupportActionBar(toolbar);

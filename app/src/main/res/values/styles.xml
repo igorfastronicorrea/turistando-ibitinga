@@ -26,6 +26,18 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
+    <style name="AppTheme.NoActionBarDetalhesTurismoRoxo">
+        <item name="colorPrimary">@color/colorTuristandoRoxo</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoRoxo</item>
+        <item name="colorAccent">@color/colorTuristandoRoxo</item>
+        <item name="colorControlNormal">@color/colorTuristandoRoxo</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+
     <style name="AppTheme.NoActionBarEventosLaranja">
         <item name="colorPrimary">@color/colorTuristandoLaranja</item>
         <item name="colorPrimaryDark">@color/colorTuristandoLaranja</item>

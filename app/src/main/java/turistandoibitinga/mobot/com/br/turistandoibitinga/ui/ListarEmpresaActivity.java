@@ -1,11 +1,13 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -115,7 +117,8 @@ public class ListarEmpresaActivity extends AppCompatActivity
                 }
                 if (scrollRange + verticalOffset == 0) {
                     collapsingToolbarLayout.setTitle(nome_listagem);
-                    collapsingToolbarLayout.setCollapsedTitleTextColor(getColor(R.color.colorTuristandoBranco));
+                    Context context = ListarEmpresaActivity.this;
+                    collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(context, R.color.colorTuristandoBranco));
                     isShow = true;
                 } else if(isShow) {
                     collapsingToolbarLayout.setTitle(" ");//carefull there should a space between double quote otherwise it wont work

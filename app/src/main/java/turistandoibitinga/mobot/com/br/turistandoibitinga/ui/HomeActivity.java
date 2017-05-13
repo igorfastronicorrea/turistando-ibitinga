@@ -33,9 +33,10 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapter
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, RecycleViewOnClickListener, RecycleViewOnClickListenerRestaurante {
 
-    //Feira do Bordado E TurismoIbitinga(O que fazer)
+    //Feira do Bordado E TurismoIbitingaActivity(O que fazer)
     private ImageView menuFeiraDoBordado;
     private ImageView menuTurismoIbitinga;
+    private ImageView menuAgendaCultural;
 
     //Categoria Empresa
     private RecyclerView recyclerView;
@@ -120,11 +121,21 @@ public class HomeActivity extends AppCompatActivity
         menuTurismoIbitinga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent menuTurismoIbitnga = new Intent(HomeActivity.this, TurismoIbitinga.class);
+                Intent menuTurismoIbitnga = new Intent(HomeActivity.this, TurismoIbitingaActivity.class);
                 startActivity(menuTurismoIbitnga);
             }
         });
 
+        menuAgendaCultural = (ImageView) findViewById(R.id.menuAgendaCultural);
+        menuAgendaCultural.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent menuAgendaCultural = new Intent(HomeActivity.this, ListarEventosActivity.class);
+                menuAgendaCultural.putExtra("api_evento", "listar_agenda_cultural");//correspondente a agenda cultural
+                menuAgendaCultural.putExtra("api_detalhes_evento", "detalhes_agenda_cultural");
+                startActivity(menuAgendaCultural);
+            }
+        });
     }
 
     @Override

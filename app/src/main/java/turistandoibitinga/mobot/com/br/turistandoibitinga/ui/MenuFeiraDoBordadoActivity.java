@@ -1,7 +1,9 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -37,7 +39,10 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarMenuFeira);
         setSupportActionBar(toolbar);
 
-        toolbar.setTitleTextColor(getColor(R.color.colorTuristandoBranco));
+        //utilizado para api -23
+        Context context = MenuFeiraDoBordadoActivity.this;
+        //ContextCompat.getColor(context, R.color.colorTuristandoBranco);
+        toolbar.setTitleTextColor(ContextCompat.getColor(context, R.color.colorTuristandoBranco));
         toolbar.setTitle("Feira do Bordado");
 
         setSupportActionBar(toolbar);
