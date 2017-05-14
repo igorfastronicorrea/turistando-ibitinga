@@ -18,9 +18,9 @@
 
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
                     android:id="@+id/fotoListarEvento"
@@ -33,30 +33,47 @@
                     android:id="@+id/nomeListarEvento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="15dp"
+                    android:paddingLeft="10dp"
                     android:paddingRight="5dp"
                     android:paddingTop="8dp"
                     android:text="CPM 22"
                     android:textColor="#050404"
-                    android:textSize="18sp"
+                    android:textSize="19sp"
                     android:textStyle="normal"
                     android:typeface="sans" />
 
-                <TextView
-                    android:id="@+id/dataListarEvento"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ellipsize="end"
-                    android:maxLines="1"
-                    android:paddingLeft="15dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
                     android:paddingRight="5dp"
-                    android:paddingTop="8dp"
-                    android:text="05 de Julho de 2017"
-                    android:textColor="@color/cardview_dark_background"
-                    android:textSize="15sp"
-                    android:textStyle="normal"
-                    android:typeface="sans" />
+                    android:layout_marginBottom="2dp"
+                    android:paddingTop="5dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/ic_calendar"
+                        android:tint="@color/colorTuristandoLaranja" />
+
+                    <TextView
+                        android:id="@+id/dataListarEvento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:layout_marginLeft="10dp"
+                        android:text="05 de Julho de 2017"
+                        android:textColor="@color/cardview_dark_background"
+                        android:textSize="15sp"
+                        android:textStyle="normal"
+                        android:typeface="sans" />
+                </LinearLayout>
+
+
             </LinearLayout>
+
 
         </RelativeLayout>
 

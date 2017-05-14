@@ -26,6 +26,14 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBarDetalhesEmpresaVermelho">
+        <item name="colorPrimary">@color/colorTuristandoRed</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoRed</item>
+        <item name="colorAccent">@color/colorTuristandoRed</item>
+        <item name="colorControlNormal">@color/colorTuristandoRed</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="AppTheme.NoActionBarDetalhesTurismoRoxo">
         <item name="colorPrimary">@color/colorTuristandoRoxo</item>
@@ -66,6 +74,13 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="AppTheme.NoActionBarListarRestaurante">
+        <item name="colorPrimary">@color/colorTuristandoRed</item>
+        <item name="colorPrimaryDark">@color/colorTuristandoRed</item>
+        <item name="colorAccent">@color/colorTuristandoRed</item>
+        <item name="colorControlNormal">@color/colorTuristandoBranco</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 
     <style name="CustomActionBarTheme" parent="@style/Theme.AppCompat.Light">
         <item name="android:actionBarStyle">@style/MyActionBar</item>

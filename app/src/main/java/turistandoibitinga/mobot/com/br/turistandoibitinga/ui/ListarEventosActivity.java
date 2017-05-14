@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -140,7 +139,6 @@ public class ListarEventosActivity extends AppCompatActivity implements RecycleV
     @Override
     public void onClickListener(View view, int position) {
 
-        Toast.makeText(this, "position:" + data_list.get(position).getId(), Toast.LENGTH_LONG).show();
         Intent i = new Intent(this, EventosActivity.class);
         i.putExtra("id", Integer.toString(data_list.get(position).getId()));
         i.putExtra("nome", data_list.get(position).getNome());

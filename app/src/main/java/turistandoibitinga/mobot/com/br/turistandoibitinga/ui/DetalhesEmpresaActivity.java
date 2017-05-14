@@ -1,6 +1,7 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -8,6 +9,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -25,17 +27,13 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private String id, descricao, foto;
+    private String id, descricao, foto, theme;
     private ImageView imgDetalhesEmpresa;
     private String api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.act_detalhes_empresa);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDetalhesEmpresa);
-        setSupportActionBar(toolbar);
-
 
         //Recebe o id, foto da classe ListarEmpresaActivity que é o id da empresa que deve ser
         //enviado para os fragments
@@ -48,6 +46,19 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         api_detalhes = intent.getStringExtra("api_detalhes");
         api_detalhes_foto_ot = intent.getStringExtra("api_detalhes_foto_ot");
         api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
+        theme = intent.getStringExtra("theme");
+
+
+        if (theme.equals("AppTheme_NoActionBarListarRestaurante")) {
+            setTheme(R.style.AppTheme_NoActionBarDetalhesEmpresaVermelho);
+        }
+
+
+        setContentView(R.layout.act_detalhes_empresa);
+
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarDetalhesEmpresa);
+        setSupportActionBar(toolbar);
 
         //seta imagem da capa no fragment - todos
         imgDetalhesEmpresa = (ImageView) findViewById(R.id.imgDetalhesEmpresa);
@@ -57,6 +68,13 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar_detalhes_empresa);
         AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.myappbar_detalhes_empresa);
         collapsingToolbarLayout.setTitle("");
+
+
+        if (theme.equals("AppTheme_NoActionBarListarRestaurante")) {
+            collapsingToolbarLayout.setContentScrimResource(R.color.colorTuristandoRed);
+        }
+
+
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isShow = false;
             int scrollRange = -1;
@@ -97,6 +115,13 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
 
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        //Se for o tema restaurante muda para vermelho
+        if (theme.equals("AppTheme_NoActionBarListarRestaurante")) {
+            tabLayout.setBackgroundResource(R.color.colorTuristandoRed);
+            tabLayout.setSelectedTabIndicatorColor(ContextCompat.getColor(this, R.color.colorTuristandoBranco));
+            tabLayout.setTabTextColors(Color.parseColor("#660101"), Color.parseColor("#ffffff"));
+        }
         tabLayout.setupWithViewPager(viewPager);
     }
 
@@ -108,6 +133,18 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
 
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(1);
+    }
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
     }
 
     class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -122,7 +159,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
         public Fragment getItem(int position) {
 
             //Fragment Descricao
-            if(position == 0) {
+            if (position == 0) {
                 //Envia o id da empresa selecionada para o fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("descricao", descricao);
@@ -130,7 +167,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
             }
 
             //Fragment Foto
-            if(position == 1) {
+            if (position == 1) {
                 //Envia o id da empresa selecionada para o fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);
@@ -141,7 +178,7 @@ public class DetalhesEmpresaActivity extends AppCompatActivity {
             }
 
             //Fragment Informações
-            if(position == 2) {
+            if (position == 2) {
                 //Envia o id da empresa selecionada para o fragment
                 Bundle bundle = new Bundle();
                 bundle.putString("id", id);

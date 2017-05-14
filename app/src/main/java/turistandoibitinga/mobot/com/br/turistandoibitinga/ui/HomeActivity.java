@@ -149,6 +149,7 @@ public class HomeActivity extends AppCompatActivity
                 bebe.putExtra("api_detalhes", "detalhes_empresa_bebe");
                 bebe.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bebe");
                 bebe.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bebe");
+                bebe.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
                 startActivity(bebe);
                 break;
             case 1:
@@ -159,6 +160,7 @@ public class HomeActivity extends AppCompatActivity
                 camamesabanho.putExtra("api_detalhes", "detalhes_empresa_camamesabanho");
                 camamesabanho.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_camamesabanho");
                 camamesabanho.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_camamesabanho");
+                camamesabanho.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(camamesabanho);
 
                 break;

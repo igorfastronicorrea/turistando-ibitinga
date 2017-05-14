@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -104,8 +105,9 @@ public class EventosActivity extends AppCompatActivity {
         //Nome no collapsing
         final CollapsingToolbarLayout collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
         collapsingToolbarLayout.setTitle(nome);
-        collapsingToolbarLayout.setCollapsedTitleTextColor(getColor(R.color.colorTuristandoBranco));
-        collapsingToolbarLayout.setExpandedTitleColor(getColor(R.color.colorTuristandoBranco));
+        Context context = EventosActivity.this;
+        collapsingToolbarLayout.setCollapsedTitleTextColor(ContextCompat.getColor(context, R.color.colorTuristandoBranco));
+        collapsingToolbarLayout.setExpandedTitleColor(ContextCompat.getColor(context, R.color.colorTuristandoBranco));
 
 
         //

@@ -54,7 +54,7 @@ public class ListarEmpresaActivity extends AppCompatActivity
     private CustomAdapterListarEmpresa adapter;
     private List<EmpresaData> data_list;
 
-    private String nome_listagem, api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos;
+    private String nome_listagem, api_listagem, api_slide, api_detalhes, api_detalhes_foto_ot, api_detalhes_fotos, theme;
 
     private String[] nome_slide = new String[]{"a","b","c"};
     private String[] foto_slide = new String[]{"a", "b", "c"};
@@ -69,7 +69,26 @@ public class ListarEmpresaActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Recebe da Activity HomeActivity quando o usuário clica no menu
+        Intent intent = getIntent();
+        nome_listagem = intent.getStringExtra("nome_listagem");
+        api_listagem = intent.getStringExtra("api_listagem");
+        api_slide = intent.getStringExtra("api_slide");
+        api_detalhes = intent.getStringExtra("api_detalhes");
+        api_detalhes_foto_ot = intent.getStringExtra("api_detalhes_foto_ot");
+        api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
+        theme = intent.getStringExtra("theme");
+
+
+        //Seta o tema, se é Loja ou se é Restaurante
+        if(theme.equals("AppTheme_NoActionBarListarRestaurante")) {
+            setTheme(R.style.AppTheme_NoActionBarListarRestaurante);
+        }
+
         setContentView(R.layout.act_listar_empresa);
+
+        //Definindo o toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarListarEmpresa);
         setSupportActionBar(toolbar);
 
@@ -88,14 +107,6 @@ public class ListarEmpresaActivity extends AppCompatActivity
             }
         });
 
-        //Recebe da Activity HomeActivity quando o usuário clica no menu
-        Intent intent = getIntent();
-        nome_listagem = intent.getStringExtra("nome_listagem");
-        api_listagem = intent.getStringExtra("api_listagem");
-        api_slide = intent.getStringExtra("api_slide");
-        api_detalhes = intent.getStringExtra("api_detalhes");
-        api_detalhes_foto_ot = intent.getStringExtra("api_detalhes_foto_ot");
-        api_detalhes_fotos = intent.getStringExtra("api_detalhes_fotos");
 
 
         //Inicializando Slider
@@ -283,6 +294,9 @@ public class ListarEmpresaActivity extends AppCompatActivity
         i.putExtra("api_detalhes", api_detalhes);
         i.putExtra("api_detalhes_foto_ot", api_detalhes_foto_ot);
         i.putExtra("api_detalhes_fotos", api_detalhes_fotos);
+
+        //envia o theme correto
+        i.putExtra("theme", theme);
 
         startActivity(i);
     }
