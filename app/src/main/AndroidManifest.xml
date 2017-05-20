@@ -72,6 +72,10 @@
             android:name=".ui.TurismoIbitingaDetalhesActivity"
             android:label=""
             android:theme="@style/AppTheme.NoActionBarDetalhesTurismoRoxo"></activity>
+        <activity
+            android:name=".ui.PoliticaPrivacidade"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

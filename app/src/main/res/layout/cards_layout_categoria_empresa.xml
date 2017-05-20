@@ -22,7 +22,7 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
-            android:src="@drawable/cat_camamesabanho"
+            android:src="@drawable/cat_bebe_final"
             android:tag="image_tag" />
 
 
