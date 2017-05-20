@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,13 +49,16 @@ import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 
 public class FragmentInformacoesEmpresa extends Fragment {
 
-    private TextView txtNomeDetalhesEmpresa, txtSiteDetalhesEmpresa,txtEmailDetalhesEmpresa, txtTel1DetalhesEmpresa,
+    private TextView txtNomeDetalhesEmpresa, txtSiteDetalhesEmpresa, txtEmailDetalhesEmpresa, txtTel1DetalhesEmpresa,
             txtTel2DetalhesEmpresa, txtHorarioDetalhesEmpresa, txtEnderecoDetalhesEmpresa;
     private ImageView facebookDetalhesEmpresa, instagramDetalhesEmpresa, whatsDetalhesEmpresa;
     private String idEmpresa, nome, face, faceid, insta, whats, site, email, tel1, tel2, horario, endereco, lat, log;
-    private ImageView ic_siteDetalhesEmpresa;
-    private View view_site, view_email, view_tel1, view_tel2, view_horario, view_endereco,view_redessociais;
-    private LinearLayout layout_site,layout_email, layout_tel1, layout_tel2, layout_horario, layout_endereco;
+
+    private View view_site, view_email, view_tel1, view_tel2, view_horario, view_endereco, view_redessociais;
+    private LinearLayout layout_site, layout_email, layout_tel1, layout_tel2, layout_horario, layout_endereco;
+
+    //icones
+    private ImageView ic_siteDetalhesEmpresa, ic_emailDetalhesEmpresa, ic_tel1DetalhesEmpresa, ic_tel2DetalhesEmpresa, ic_horarioDetalhesEmpresa, ic_mapDetalhesEmpresa;
 
     MapView mMapView;
     private GoogleMap googleMap;
@@ -104,8 +108,17 @@ public class FragmentInformacoesEmpresa extends Fragment {
         view_redessociais = (View) v.findViewById(R.id.view_redessociais);
 
         facebookDetalhesEmpresa = (ImageView) v.findViewById(R.id.facebookDetalhesEmpresa);
-        whatsDetalhesEmpresa    = (ImageView) v.findViewById(R.id.whatsDetalhesEmpresa);
+        whatsDetalhesEmpresa = (ImageView) v.findViewById(R.id.whatsDetalhesEmpresa);
         instagramDetalhesEmpresa = (ImageView) v.findViewById(R.id.instagramDetalhesEmpresa);
+
+
+        //icones
+        ic_siteDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_siteDetalhesEmpresa);
+        ic_emailDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_emailDetalhesEmpresa);
+        ic_tel1DetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_tel1DetalhesEmpresa);
+        ic_tel2DetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_tel2DetalhesEmpresa);
+        ic_horarioDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_horarioDetalhesEmpresa);
+        ic_mapDetalhesEmpresa = (ImageView) v.findViewById(R.id.ic_mapDetalhesEmpresa);
 
 
         //Recebe id da classe DetalhesEmpresa Activity
@@ -114,6 +127,16 @@ public class FragmentInformacoesEmpresa extends Fragment {
         api_detalhes = args.getString("api_detalhes");
         carregaDados(Integer.parseInt(idEmpresa));
 
+        Context context = getActivity();
+
+        if(api_detalhes.equals("detalhes_empresa_restaurante") || api_detalhes.equals("detalhes_empresa_hoteis") || api_detalhes.equals("detalhes_empresa_bar")){
+            ic_siteDetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+            ic_emailDetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+            ic_tel1DetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+            ic_tel2DetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+            ic_horarioDetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+            ic_mapDetalhesEmpresa.setColorFilter(ContextCompat.getColor(context, R.color.colorTuristandoRed));
+        }
 
 
         mMapView = (MapView) v.findViewById(R.id.mapView);
@@ -128,7 +151,6 @@ public class FragmentInformacoesEmpresa extends Fragment {
         }
 
 
-
         return v;
     }
 
@@ -139,7 +161,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
             protected Void doInBackground(Integer... integers) {
 
                 OkHttpClient cliente = new OkHttpClient();
-                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_detalhes +".php?id=" + id)
+                Request request = new Request.Builder().url("http://turistandomobot.esy.es/" + api_detalhes + ".php?id=" + id)
                         .build();
                 try {
                     Response response = cliente.newCall(request).execute();
@@ -177,29 +199,28 @@ public class FragmentInformacoesEmpresa extends Fragment {
             @Override
             protected void onPostExecute(Void aVoid) {
 
-                if(nome != null){
+                if (nome != null) {
                     txtNomeDetalhesEmpresa.setVisibility(View.VISIBLE);
                     txtNomeDetalhesEmpresa.setText(nome);
                 }
 
-                if(site != "null"){
+                if (site != "null") {
                     layout_site.setVisibility(View.VISIBLE);
                     txtSiteDetalhesEmpresa.setVisibility(View.VISIBLE);
-                    ic_siteDetalhesEmpresa.setVisibility(View.VISIBLE);
                     view_site.setVisibility(View.VISIBLE);
                     txtSiteDetalhesEmpresa.setText(site);
 
                     txtSiteDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://"+site.toString()+"/")));
+                            startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("http://" + site.toString() + "/")));
                         }
                     });
                 }
 
-                if(email != "null"){
+                if (email != "null") {
                     layout_email.setVisibility(View.VISIBLE);
-                    view_site.setVisibility(View.VISIBLE);
+                    view_email.setVisibility(View.VISIBLE);
                     txtEmailDetalhesEmpresa.setText(email);
 
                     txtEmailDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
@@ -207,14 +228,14 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         public void onClick(View v) {
                             Intent intent = new Intent(Intent.ACTION_SEND);
                             intent.setType("text/plain");
-                            intent.putExtra(Intent.EXTRA_EMAIL, new String[] { email });
+                            intent.putExtra(Intent.EXTRA_EMAIL, new String[]{email});
                             startActivity(Intent.createChooser(intent, ""));
                         }
                     });
                 }
 
 
-                if(tel1 != "null"){
+                if (tel1 != "null") {
                     layout_tel1.setVisibility(View.VISIBLE);
                     view_tel1.setVisibility(View.VISIBLE);
                     txtTel1DetalhesEmpresa.setText(tel1);
@@ -223,14 +244,14 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                            callIntent.setData(Uri.parse("tel:"+tel1));
-                            startActivity(callIntent );
+                            callIntent.setData(Uri.parse("tel:" + tel1));
+                            startActivity(callIntent);
                         }
                     });
                 }
 
 
-                if(tel2 != "null"){
+                if (tel2 != "null") {
                     layout_tel2.setVisibility(View.VISIBLE);
                     view_tel2.setVisibility(View.VISIBLE);
                     txtTel2DetalhesEmpresa.setText(tel2);
@@ -239,19 +260,19 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                            callIntent.setData(Uri.parse("tel:"+tel2));
-                            startActivity(callIntent );
+                            callIntent.setData(Uri.parse("tel:" + tel2));
+                            startActivity(callIntent);
                         }
                     });
                 }
 
-                if(horario != "null"){
+                if (horario != "null") {
                     layout_horario.setVisibility(View.VISIBLE);
                     view_horario.setVisibility(View.VISIBLE);
                     txtHorarioDetalhesEmpresa.setText(horario);
                 }
 
-                if(endereco != "null"){
+                if (endereco != "null") {
                     layout_endereco.setVisibility(View.VISIBLE);
                     view_endereco.setVisibility(View.VISIBLE);
                     txtEnderecoDetalhesEmpresa.setText(endereco);
@@ -261,7 +282,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(Intent.ACTION_VIEW);
-                            intent.setData(Uri.parse("geo:<"+ lat + ">,<" + log + ">?q=<" + lat + ">,<" + log + ">(" + nome + ")" ));
+                            intent.setData(Uri.parse("geo:<" + lat + ">,<" + log + ">?q=<" + lat + ">,<" + log + ">(" + nome + ")"));
                             startActivity(intent);
                         }
                     });
@@ -289,7 +310,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
                 }
 
                 //Redes Sociais - Facebook
-                if(face != "null"){
+                if (face != "null") {
                     facebookDetalhesEmpresa.setVisibility(View.VISIBLE);
                     view_redessociais.setVisibility(View.VISIBLE);
 
@@ -311,21 +332,21 @@ public class FragmentInformacoesEmpresa extends Fragment {
                 }
 
                 //instagram
-                if(insta != "null"){
+                if (insta != "null") {
                     instagramDetalhesEmpresa.setVisibility(View.VISIBLE);
                     view_redessociais.setVisibility(View.VISIBLE);
 
                     instagramDetalhesEmpresa.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Uri uri = Uri.parse("http://instagram.com/_u/"+insta);
+                            Uri uri = Uri.parse("http://instagram.com/_u/" + insta);
                             Intent instagram = new Intent(Intent.ACTION_VIEW, uri);
                             instagram.setPackage("com.instagram.android");
 
-                            if (isIntentAvailable(getContext(), instagram)){
+                            if (isIntentAvailable(getContext(), instagram)) {
                                 startActivity(instagram);
-                            } else{
-                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/"+insta)));
+                            } else {
+                                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/" + insta)));
                             }
 
                         }
@@ -334,7 +355,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
 
 
                 //WhatsApp
-                if(whats != "null"){
+                if (whats != "null") {
                     whatsDetalhesEmpresa.setVisibility(View.VISIBLE);
                     view_redessociais.setVisibility(View.VISIBLE);
 
@@ -418,6 +439,7 @@ public class FragmentInformacoesEmpresa extends Fragment {
         super.onDestroy();
         mMapView.onDestroy();
     }
+
     @Override
     public void onLowMemory() {
         super.onLowMemory();

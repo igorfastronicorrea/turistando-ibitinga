@@ -49,40 +49,40 @@
                     android:id="@+id/facebookDetalhesEmpresa"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:visibility="gone"
                     android:layout_weight="2"
-                    android:src="@drawable/icon_face" />
+                    android:src="@drawable/icon_face"
+                    android:visibility="gone" />
 
                 <ImageView
                     android:id="@+id/instagramDetalhesEmpresa"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:visibility="gone"
                     android:layout_weight="2"
-                    android:src="@drawable/icon_insta" />
+                    android:src="@drawable/icon_insta"
+                    android:visibility="gone" />
 
 
                 <ImageView
                     android:id="@+id/whatsDetalhesEmpresa"
                     android:layout_width="60dp"
-                    android:visibility="gone"
                     android:layout_height="60dp"
                     android:layout_weight="2"
-                    android:src="@drawable/icon_whats" />
+                    android:src="@drawable/icon_whats"
+                    android:visibility="gone" />
 
 
             </LinearLayout>
         </com.andexert.library.RippleView>
 
         <View
-            android:layout_width="match_parent"
-            android:visibility="gone"
-            android:layout_height="1dp"
             android:id="@+id/view_redessociais"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
             android:id="@+id/layout_site"
@@ -99,8 +99,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginStart="15dp"
                 android:src="@drawable/ic_web_grey"
-                android:tint="@color/colorTuristandoAzul"
-                android:visibility="gone" />
+                android:tint="@color/colorTuristandoAzul" />
 
             <TextView
                 android:id="@+id/txtSiteDetalhesEmpresa"
@@ -198,12 +197,12 @@
             android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/layout_tel2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:id="@+id/layout_tel2"
-            android:visibility="gone"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_tel2DetalhesEmpresa"
@@ -231,16 +230,16 @@
             android:layout_marginLeft="70dp"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:visibility="gone"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/layout_horario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/layout_horario"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_horarioDetalhesEmpresa"
@@ -262,22 +261,22 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/view_horario"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="70dp"
-            android:visibility="gone"
-            android:id="@+id/view_horario"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
         <LinearLayout
+            android:id="@+id/layout_endereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:visibility="gone"
-            android:id="@+id/layout_endereco"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/ic_mapDetalhesEmpresa"
@@ -300,21 +299,21 @@
         </LinearLayout>
 
         <View
+            android:id="@+id/view_endereco"
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
-            android:visibility="gone"
             android:layout_marginLeft="70dp"
-            android:id="@+id/view_endereco"
             android:layout_marginRight="0dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/darker_gray" />
+            android:background="@android:color/darker_gray"
+            android:visibility="gone" />
 
 
         <com.google.android.gms.maps.MapView
             android:id="@+id/mapView"
-            android:visibility="gone"
             android:layout_width="match_parent"
-            android:layout_height="200dp" />
+            android:layout_height="200dp"
+            android:visibility="gone" />
 
 
     </LinearLayout>

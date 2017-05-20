@@ -14,20 +14,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaEmpresa;
-import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
-import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaEmpresa;
-import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaRestaurante;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListener;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListenerRestaurante;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterEmpresa;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.adapters.CustomAdapterRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.menudata.MyDataHomeCategoriaRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaEmpresa;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
 
 
 public class HomeActivity extends AppCompatActivity
@@ -149,7 +148,7 @@ public class HomeActivity extends AppCompatActivity
                 bebe.putExtra("api_detalhes", "detalhes_empresa_bebe");
                 bebe.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bebe");
                 bebe.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bebe");
-                bebe.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
+                bebe.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(bebe);
                 break;
             case 1:
@@ -162,7 +161,28 @@ public class HomeActivity extends AppCompatActivity
                 camamesabanho.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_camamesabanho");
                 camamesabanho.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(camamesabanho);
-
+                break;
+            case 2:
+                Intent cozinha = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                cozinha.putExtra("nome_listagem", "Cozinha");
+                cozinha.putExtra("api_listagem", "listagem_empresa_cozinha");
+                cozinha.putExtra("api_slide", "slide_listagem_cozinha");
+                cozinha.putExtra("api_detalhes", "detalhes_empresa_cozinha");
+                cozinha.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_cozinha");
+                cozinha.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_cozinha");
+                cozinha.putExtra("theme", "AppTheme_NoActionBarListar");
+                startActivity(cozinha);
+                break;
+            case 3:
+                Intent decoracao = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                decoracao.putExtra("nome_listagem", "Decoração");
+                decoracao.putExtra("api_listagem", "listagem_empresa_decoracao");
+                decoracao.putExtra("api_slide", "slide_listagem_decoracao");
+                decoracao.putExtra("api_detalhes", "detalhes_empresa_decoracao");
+                decoracao.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_decoracao");
+                decoracao.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_decoracao");
+                decoracao.putExtra("theme", "AppTheme_NoActionBarListar");
+                startActivity(decoracao);
                 break;
             default:
                 Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
@@ -173,9 +193,44 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     public void onClickListenerRestaurante(View view, int position) {
-        Toast.makeText(this, "position" + position, Toast.LENGTH_LONG).show();
-        Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
-        startActivity(i);
+        switch (position){
+            case 0:
+                Intent restaurante = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                restaurante.putExtra("nome_listagem", "Restaurante");
+                restaurante.putExtra("api_listagem", "listagem_empresa_restaurante");
+                restaurante.putExtra("api_slide", "slide_listagem_restaurante");
+                restaurante.putExtra("api_detalhes", "detalhes_empresa_restaurante");
+                restaurante.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_restaurante");
+                restaurante.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_restaurante");
+                restaurante.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
+                startActivity(restaurante);
+                break;
+            case 1:
+                Intent hotel = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                hotel.putExtra("nome_listagem", "Hotéis");
+                hotel.putExtra("api_listagem", "listagem_empresa_hoteis");
+                hotel.putExtra("api_slide", "slide_listagem_hotel");
+                hotel.putExtra("api_detalhes", "detalhes_empresa_hoteis");
+                hotel.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_hoteis");
+                hotel.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_hoteis");
+                hotel.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
+                startActivity(hotel);
+                break;
+            case 2:
+                Intent bar = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                bar.putExtra("nome_listagem", "Bares");
+                bar.putExtra("api_listagem", "listagem_empresa_bar");
+                bar.putExtra("api_slide", "slide_listagem_bar");
+                bar.putExtra("api_detalhes", "detalhes_empresa_bar");
+                bar.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bar");
+                bar.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bar");
+                bar.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
+                startActivity(bar);
+                break;
+            default:
+                Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                startActivity(i);
+        }
     }
 
     @Override
