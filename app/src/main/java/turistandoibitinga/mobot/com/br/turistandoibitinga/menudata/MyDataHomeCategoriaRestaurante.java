@@ -10,9 +10,9 @@ public class MyDataHomeCategoriaRestaurante {
 
     public static String[] nameArray = {"Restaurante", "Hotel","Bares"};
 
-    public static Integer[] drawableArray = {R.drawable.cat_bebe,
-            R.drawable.cat_bebe,
-            R.drawable.cat_bebe};
+    public static Integer[] drawableArray = {R.mipmap.cat_restaurantes1,
+            R.mipmap.cat_hoteis1,
+            R.mipmap.cat_baresepizarias};
 
     public static Integer[] id_ = {0, 1, 2};
 }

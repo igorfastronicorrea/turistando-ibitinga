@@ -11,7 +11,7 @@ public class MyDataTurismoIbitinga {
     public static String[] nameArray = {"Corpus Christi", "Via Sacra", "Feira do Bordado", "Turismo Religioso", "Turismo de Compras", "Turismo Rural"};
     //public static String[] nameArray = {"Corpus Christi"};
 
-    public static Integer[] drawableArray = {R.drawable.menu_1,
+    public static Integer[] drawableArray = {R.mipmap.menu_corpuscristi,
             R.drawable.menu_6, //via sacra
             R.drawable.menu_2, //feira do bordado
             R.drawable.menu_4, //turismo religioso

@@ -1,5 +1,6 @@
 package turistandoibitinga.mobot.com.br.turistandoibitinga.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -14,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,8 +71,9 @@ public class HomeActivity extends AppCompatActivity
         //
         //Começa aqui o meu código
         //
-
+        Context context = HomeActivity.this;
         menuFeiraDoBordado = (ImageView) findViewById(R.id.menuFeiradoBordado);
+        Picasso.with(context).load(R.drawable.ic_imagem_feira1).into(menuFeiraDoBordado);
         menuFeiraDoBordado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,6 +121,7 @@ public class HomeActivity extends AppCompatActivity
 
 
         menuTurismoIbitinga = (ImageView) findViewById(R.id.menuTurismoIbitinga);
+        Picasso.with(context).load(R.mipmap.menuoqefazereeemibitinga).into(menuTurismoIbitinga);
         menuTurismoIbitinga.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +131,7 @@ public class HomeActivity extends AppCompatActivity
         });
 
         menuAgendaCultural = (ImageView) findViewById(R.id.menuAgendaCultural);
+        Picasso.with(context).load(R.mipmap.menuagendacultural).into(menuAgendaCultural);
         menuAgendaCultural.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

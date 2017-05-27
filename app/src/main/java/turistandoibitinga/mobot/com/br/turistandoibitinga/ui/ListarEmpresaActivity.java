@@ -338,6 +338,9 @@ public class ListarEmpresaActivity extends AppCompatActivity
         i.putExtra("api_detalhes_foto_ot", api_detalhes_foto_ot);
         i.putExtra("api_detalhes_fotos", api_detalhes_fotos);
 
+        //envia o theme correto
+        i.putExtra("theme", theme);
+
         startActivity(i);
     }
 

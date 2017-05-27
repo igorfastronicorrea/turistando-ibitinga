@@ -10,11 +10,11 @@ public class MyDataHomeCategoriaEmpresa {
 
     public static String[] nameArray = {"Bebe", "Cama Mesa e Banho","Cozinha","Decoracao","Bicho de Pelucia"};
 
-    public static Integer[] drawableArray = {R.drawable.cat_bebe,
-            R.drawable.cat_camamesabanho,
-            R.drawable.cat_cozinha,
-            R.drawable.cat_decoracao,
-            R.drawable.cat_bichodepelucia   };
+    public static Integer[] drawableArray = {R.mipmap.cat_bebe1,
+            R.mipmap.cat_camamesabanho1,
+            R.mipmap.cat_cozinha1,
+            R.mipmap.cat_decoracao1,
+            R.mipmap.cat_bichodepelucia1   };
 
     public static Integer[] id_ = {0, 1, 2, 3, 4};
 }

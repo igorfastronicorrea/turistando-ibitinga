@@ -8,11 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
-import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
 import turistandoibitinga.mobot.com.br.turistandoibitinga.RecycleViewOnClickListenerRestaurante;
+import turistandoibitinga.mobot.com.br.turistandoibitinga.model.DataModelHomeCategoriaRestaurante;
 
 /**
  * Created by mobot on 01/04/2017.
@@ -39,8 +41,15 @@ public class CustomAdapterRestaurante extends RecyclerView.Adapter<CustomAdapter
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageView imageView = holder.ivFoto;
-        imageView.setImageResource(my_data.get(position).getImage());
+
+        int[] drawableArray = {R.mipmap.cat_restaurantes1,
+                R.mipmap.cat_hoteis1,
+                R.mipmap.cat_baresepizarias   };
+
+        Picasso.with(context).load(drawableArray[position]).into(holder.ivFoto);
+
+        //ImageView imageView = holder.ivFoto;
+        //imageView.setImageResource(my_data.get(position).getImage());
     }
 
     @Override

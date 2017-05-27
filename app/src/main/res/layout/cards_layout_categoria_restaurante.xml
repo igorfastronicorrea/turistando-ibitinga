@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         card_view:cardBackgroundColor="@color/cardview_light_background"
-        card_view:cardCornerRadius="10dp"
         card_view:cardElevation="0dp"
         card_view:cardUseCompatPadding="true">
 
@@ -22,7 +21,6 @@
             android:layout_margin="0dp"
             android:layout_weight="1"
             android:scaleType="fitXY"
-            android:src="@drawable/cat_camamesabanho"
             android:tag="image_tag" />
 
 
