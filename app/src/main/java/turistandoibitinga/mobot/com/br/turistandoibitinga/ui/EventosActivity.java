@@ -46,9 +46,9 @@ public class EventosActivity extends AppCompatActivity {
     private LinearLayout layout_endereco_evento;
     MapView mMapView;
     private GoogleMap googleMap;
-    private TextView txtEnderecoEvento, txtDiaEvento, txtMesEvento, txtAnoEvento, txtHorarioEvento, txtLocalEvento, txtDescricaoEvento;
+    private TextView txtEnderecoEvento, txtDiaEvento, txtMesEvento, txtAnoEvento, txtDataEvento, txtHorarioEvento, txtLocalEvento, txtDescricaoEvento;
     private String lat, log, local_evento, api_detalhes_evento;
-    private String id, fotoCapaEvento, nome, dia, mes, ano, horario, descricao, foto1, foto2, facebook, faceid, endereco;
+    private String id, fotoCapaEvento, nome, dia, mes, ano, horario, descricao, foto1, foto2, facebook, faceid, endereco, data;
     private ImageView imgFotoCapaEvento, imgFotoEvento1, imgFotoEvento2, imgFacebookEvento;
     private LinearLayout layoutFaceEvento, layoutEnderecoEvento;
 
@@ -79,11 +79,12 @@ public class EventosActivity extends AppCompatActivity {
         layoutEnderecoEvento = (LinearLayout) findViewById(R.id.layoutEnderecoEvento);
         txtEnderecoEvento = (TextView) findViewById(R.id.txtEnderecoEvento);
         imgFotoCapaEvento = (ImageView) findViewById(R.id.imgFotoCapaEvento);
-        txtDiaEvento = (TextView) findViewById(R.id.txtDiaEvento);
-        txtMesEvento = (TextView) findViewById(R.id.txtMesEvento);
-        txtAnoEvento = (TextView) findViewById(R.id.txtAnoEvento);
+        //txtDiaEvento = (TextView) findViewById(R.id.txtDiaEvento);
+        //txtMesEvento = (TextView) findViewById(R.id.txtMesEvento);
+        //txtAnoEvento = (TextView) findViewById(R.id.txtAnoEvento);
+        txtDataEvento = (TextView) findViewById(R.id.txtDataEvento);
         txtHorarioEvento = (TextView) findViewById(R.id.txtHorarioEvento);
-        txtLocalEvento = (TextView) findViewById(R.id.txtLocalEvento);
+        //txtLocalEvento = (TextView) findViewById(R.id.txtLocalEvento);
         txtDescricaoEvento = (TextView) findViewById(R.id.txtDescricaoEvento);
         imgFotoEvento1 = (ImageView) findViewById(R.id.fotoEvento1);
         imgFotoEvento2 = (ImageView) findViewById(R.id.fotoEvento2);
@@ -145,9 +146,10 @@ public class EventosActivity extends AppCompatActivity {
                         JSONObject object = array.getJSONObject(i);
 
                         fotoCapaEvento = object.getString("foto_capa");
-                        dia = object.getString("dia");
-                        mes = object.getString("mes");
-                        ano = object.getString("ano");
+                        //dia = object.getString("dia");
+                        //mes = object.getString("mes");
+                        //ano = object.getString("ano");
+                        data = object.getString("data");
                         horario = object.getString("hora");
                         descricao = object.getString("descricao");
                         foto1 = object.getString("foto1");
@@ -169,12 +171,12 @@ public class EventosActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Void aVoid) {
 
-                if(fotoCapaEvento != "null"){
+                if (fotoCapaEvento != "null") {
                     Picasso.with(EventosActivity.this).load(fotoCapaEvento).into(imgFotoCapaEvento);
                     imgFotoCapaEvento.setVisibility(View.VISIBLE);
                 }
 
-                if (dia != "null") {
+               /* if (dia != "null") {
                     txtDiaEvento.setText(dia);
                     txtDiaEvento.setVisibility(View.VISIBLE);
                 }
@@ -187,6 +189,11 @@ public class EventosActivity extends AppCompatActivity {
                 if (ano != "null") {
                     txtAnoEvento.setText(ano);
                     txtAnoEvento.setVisibility(View.VISIBLE);
+                }*/
+
+                if (data != "null") {
+                    txtDataEvento.setText(data);
+                    txtDataEvento.setVisibility(View.VISIBLE);
                 }
 
                 if (horario != "null") {
@@ -194,10 +201,10 @@ public class EventosActivity extends AppCompatActivity {
                     txtHorarioEvento.setVisibility(View.VISIBLE);
                 }
 
-                if (local_evento != "null") {
+                /*if (local_evento != "null") {
                     txtLocalEvento.setText(local_evento);
                     txtLocalEvento.setVisibility(View.VISIBLE);
-                }
+                }*/
 
                 if (descricao != "null") {
                     txtDescricaoEvento.setText(descricao);
@@ -291,7 +298,6 @@ public class EventosActivity extends AppCompatActivity {
 
             }
         };
-
         task.execute(id);
     }
 

@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
@@ -38,8 +40,9 @@ public class CustomAdapterTurismoIbitinga extends RecyclerView.Adapter<CustomAda
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        ImageView imageView = holder.ivFoto;
-        imageView.setImageResource(my_data.get(position).getImage());
+        //ImageView imageView = holder.ivFoto;
+        //imageView.setImageResource(my_data.get(position).getImage());
+        Picasso.with(context).load(my_data.get(position).getImage()).into(holder.ivFoto);
     }
 
     @Override

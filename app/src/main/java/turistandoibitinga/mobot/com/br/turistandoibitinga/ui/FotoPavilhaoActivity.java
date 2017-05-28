@@ -57,11 +57,11 @@ public class FotoPavilhaoActivity extends AppCompatActivity {
         final PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imgPavilhao);
 
         if (blocoPavilhao.equals("foto_pavilhao_a")) {
-            imgPavilhao.setImageResource(R.drawable.menu_pavilhao_a);
+            imgPavilhao.setImageResource(R.mipmap.menu_pavilhao_a);
         } else if (blocoPavilhao.equals("foto_pavilhao_b")) {
-            imgPavilhao.setImageResource(R.drawable.menu_pavilhao_b);
+            imgPavilhao.setImageResource(R.mipmap.menu_pavilhao_b);
         } else if (blocoPavilhao.equals("foto_pavilhao_c")) {
-            imgPavilhao.setImageResource(R.drawable.menu_pavilhao_c);
+            imgPavilhao.setImageResource(R.mipmap.menu_pavilhao_c);
         }
 
 

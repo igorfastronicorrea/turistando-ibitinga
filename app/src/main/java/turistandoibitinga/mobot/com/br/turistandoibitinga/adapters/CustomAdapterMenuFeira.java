@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import turistandoibitinga.mobot.com.br.turistandoibitinga.R;
@@ -39,10 +41,11 @@ public class CustomAdapterMenuFeira extends RecyclerView.Adapter<CustomAdapterMe
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-//        holder.description.setText(my_data.get(position).getName());
+        //holder.description.setText(my_data.get(position).getName());
         //Picasso.with(context).load(my_data.get(position).getImage()).resize(120, 60).into(holder.ivFoto);
-        ImageView imageView = holder.ivFoto;
-        imageView.setImageResource(my_data.get(position).getImage());
+        //ImageView imageView = holder.ivFoto;
+        //imageView.setImageResource(my_data.get(position).getImage());
+        Picasso.with(context).load(my_data.get(position).getImage()).into(holder.ivFoto);
     }
 
     @Override

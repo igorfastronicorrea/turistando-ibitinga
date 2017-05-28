@@ -12,11 +12,11 @@ public class MyDataTurismoIbitinga {
     //public static String[] nameArray = {"Corpus Christi"};
 
     public static Integer[] drawableArray = {R.mipmap.menu_corpuscristi,
-            R.drawable.menu_6, //via sacra
-            R.drawable.menu_2, //feira do bordado
-            R.drawable.menu_4, //turismo religioso
-            R.drawable.menu_3, //turismo compras
-            R.drawable.menu_5, //turismo rural
+            R.mipmap.menu_viasacrafinal, //via sacra
+            R.mipmap.menu_feiradobordadofinal, //feira do bordado
+            R.mipmap.menu_turismoreligioso, //turismo religioso
+            R.mipmap.menu_turismodecompras, //turismo compras
+            R.mipmap.menu_turismorualfinal //turismo rural
     };
 
     public static Integer[] id_ = {0, 1, 2, 3, 4, 5};
