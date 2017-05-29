@@ -77,17 +77,22 @@
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center_vertical"
                                 android:tint="@color/colorTuristandoLaranja"
                                 android:src="@drawable/ic_calendar" />
 
                             <TextView
                                 android:id="@+id/txtDataEvento"
-                                android:layout_marginLeft="30dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="9dp"
                                 android:layout_width="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
                                 android:text="DIA DO EVENTO"
                                 android:textColor="#e06923"
                                 android:textSize="20dp" />
@@ -97,22 +102,27 @@
                         <LinearLayout
                             android:id="@+id/layoutHorario"
                             android:layout_width="match_parent"
+                            android:layout_marginTop="5dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <ImageView
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_gravity="center_vertical"
                                 android:tint="@color/colorTuristandoLaranja"
                                 android:src="@drawable/ic_clock_grey600" />
 
                             <TextView
                                 android:id="@+id/txtHorarioEvento"
                                 android:layout_width="wrap_content"
-                                android:layout_marginLeft="20dp"
-                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
                                 android:layout_gravity="center_vertical"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="10dp"
                                 android:text="horario"
                                 android:textColor="#e06923"
                                 android:textSize="20dp" />
