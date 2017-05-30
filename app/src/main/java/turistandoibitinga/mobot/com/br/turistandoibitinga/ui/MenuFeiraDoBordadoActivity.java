@@ -82,7 +82,7 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
 
         switch (position){
             //pavilhao a
-            case 0:
+            /*case 0:
                 Intent a = new Intent(MenuFeiraDoBordadoActivity.this, FotoPavilhaoActivity.class);
                 a.putExtra("blocoPavilhao", "foto_pavilhao_a");
                 startActivity(a);
@@ -116,6 +116,26 @@ public class MenuFeiraDoBordadoActivity extends AppCompatActivity implements Rec
 
             //Como contato
             case 5:
+                Intent f = new Intent(MenuFeiraDoBordadoActivity.this, ContatoFeiraActivity.class);
+                startActivity(f);
+                break;*/
+
+            //Agenda de Shows
+            case 0:
+                Intent d = new Intent(MenuFeiraDoBordadoActivity.this, ListarEventosActivity.class);
+                d.putExtra("api_evento", "listar_eventos_feira");//correspondente a feira do bordado
+                d.putExtra("api_detalhes_evento", "detalhes_eventos_feira");
+                startActivity(d);
+                break;
+
+            //Como chegar
+            case 1:
+                Intent e = new Intent(MenuFeiraDoBordadoActivity.this, ComoChegarFeiraMapActivity.class);
+                startActivity(e);
+                break;
+
+            //Como contato
+            case 2:
                 Intent f = new Intent(MenuFeiraDoBordadoActivity.this, ContatoFeiraActivity.class);
                 startActivity(f);
                 break;

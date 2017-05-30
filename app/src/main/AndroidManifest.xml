@@ -86,6 +86,10 @@
             android:name=".ui.PoliticaPrivacidade"
             android:label=""
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
+        <activity
+            android:name=".ui.DesenvolvimentoActivity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

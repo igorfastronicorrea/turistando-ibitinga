@@ -190,6 +190,17 @@ public class HomeActivity extends AppCompatActivity
                 decoracao.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(decoracao);
                 break;
+            case 4:
+                Intent bichoPelucia = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
+                bichoPelucia.putExtra("nome_listagem", "Bicho de Pelucia");
+                bichoPelucia.putExtra("api_listagem", "listagem_empresa_bichodepelucia");
+                bichoPelucia.putExtra("api_slide", "slide_listagem_bichopelucia");
+                bichoPelucia.putExtra("api_detalhes", "detalhes_empresa_bichodepelucia");
+                bichoPelucia.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bichodepelucia");
+                bichoPelucia.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bichodepelucia");
+                bichoPelucia.putExtra("theme", "AppTheme_NoActionBarListar");
+                startActivity(bichoPelucia);
+                break;
             default:
                 Intent i = new Intent(HomeActivity.this, ListarEmpresaActivity.class);
                 startActivity(i);
@@ -256,7 +267,10 @@ public class HomeActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_manage) {
+        if (id == R.id.nav_code) {
+            Intent politica = new Intent(HomeActivity.this, DesenvolvimentoActivity.class);
+            startActivity(politica);
+        } else if (id == R.id.nav_manage) {
             Intent politica = new Intent(HomeActivity.this, PoliticaPrivacidade.class);
             startActivity(politica);
         }

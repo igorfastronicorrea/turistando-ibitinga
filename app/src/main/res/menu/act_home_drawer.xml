@@ -2,11 +2,25 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <item android:title="Política">
+    <!--<item android:title="Política">
         <menu>
             <item
                 android:id="@+id/nav_manage"
                 android:icon="@drawable/ic_menu_manage"
+                android:title="Política de Privacidade" />
+        </menu>
+    </item>-->
+    <item android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_code"
+                android:icon="@drawable/code_ic"
+                android:title="Desenvolvimento" />
+
+            <item
+                android:id="@+id/nav_manage"
+                android:icon="@drawable/info_icon"
                 android:title="Política de Privacidade" />
         </menu>
     </item>
