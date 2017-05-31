@@ -6,4 +6,47 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_detalhes_empresa">DetalhesEmpresaActivity</string>
+    <string name="politica">RESUMO
+Os únicos dados coletados do usuário são Localização e imagens obtidas através da câmera do aparelho para uso único e exclusivo do bom funcionamento do aplicativo.
+POLITICA COMPLETA
+Sobre o uso dos dados coletados
+Nenhum tipo de dado pessoal é armazenado pelo aplicativo em si.
+O Usuário assume a responsabilidade pelos Dados Pessoais de terceiros publicados ou compartilhados através deste Aplicativo e declara ter o direito de comunicá-los ou transmiti-los, dispensando o Controlador de Dados de toda a responsabilidade.
+Modo e local de processamento dos dados
+Métodos de processamento
+O Controlador de Dados processa os Dados dos Usuários de maneira adequada e deve tomar as medidas de segurança apropriadas para impedir o acesso não autorizado, divulgação, modificação ou destruição não autorizada dos Dados. O processamento de dados é realizado utilizando computadores e / ou ferramentas habilitadas por TI, seguindo procedimentos organizacionais e modos estritamente relacionados aos fins indicados. Além do Controlador de Dados, em alguns casos, os Dados podem ser acessíveis a certos tipos de pessoas responsáveis, envolvidos com a operação do site (administração, vendas, marketing, jurídico, administração do sistema) ou externos (como terceiro Provedores de serviços técnicos de terceiros, portadores de correio, provedores de hospedagem, empresas de TI, agências de comunicação) nomeados, se necessário, como Provedores de Dados pelo Proprietário. A lista atualizada dessas partes pode ser solicitada ao Controlador de Dados a qualquer momento.
+Informações detalhadas sobre o tratamento de dados pessoais
+Os dados pessoais coletados pelo aplicativo tem as seguintes finalidades:
+1.	Salvar contato para abrir whatsapp Este aplicativo requisita acesso aos contatos do dispositivo para ler e salvar os contatos das empresas para permitirem uma sincronia com o whatsapp
+2.	Localização Este aplicativo poderá coletar informações sobre a localização do usuário através da utilização de tecnologias diversas que determinam também endereço IP, GPS, entre outros, que permitam, por exemplo, a identificação de dispositivos próximos, pontos de wi-fi e torres de telefonia. Ao usar este aplicativo os usuários também estão cientes e de acordo com os Termos de Serviço do Google, disponível neste link. (https://www.google.com/policies/privacy)
+Informações detalhadas sobre o tratamento de dados pessoais
+Ação legal
+Os Dados Pessoais do Utilizador podem ser utilizados para efeitos legais pelo Controlador de Dados, no Tribunal ou locais que conduzem a possíveis ações legais decorrentes do uso indevido deste termo ou dos serviços relacionados. Os Dados não serão compartilhados com terceiros por qualquer outro motivo. O Utilizador está ciente do fato de o Controlador de Dados poder ser obrigado a revelar dados pessoais a pedido das autoridades públicas.
+Informações adicionais sobre os dados pessoais do usuário
+Nenhuma informação adicional será coletada por este aplicativo, exceto os tipos descritos neste documento.
+Logs e manutenção do sistema
+Para fins de operação e manutenção, esta Aplicação e quaisquer serviços de terceiros podem coletar arquivos que registram interação com esta Aplicação (Logs do Sistema) ou usar outros Dados Pessoais (tais como Endereço IP).
+Informações não contidas nesta política
+Mais detalhes sobre a coleta ou processamento de Dados Pessoais podem ser solicitados ao Controlador de Dados a qualquer momento. Consulte as informações de contato no início deste documento.
+Os direitos dos usuários
+Os utilizadores têm o direito, a qualquer momento, de saber se os seus Dados Pessoais foram armazenados e podem consultar o Controlador de Dados para conhecer o seu conteúdo e origem, verificar a sua exatidão ou pedir que sejam completados, cancelados, atualizados ou corrigidos, ou para a sua transformação em formato anónimo ou para bloquear quaisquer dados mantidos em violação da lei, bem como para se opor ao seu tratamento por qualquer e todos os motivos legítimos. As solicitações devem ser enviadas ao Controlador de Dados nas informações de contato descritas acima. Este aplicativo não oferece suporte a solicitações "Não acompanhar". Para determinar se algum dos serviços de terceiros que utiliza honra os pedidos "Não acompanhar", leia as respectivas políticas de privacidade
+Alterações a esta política de privacidade
+O Controlador de Dados se reserva o direito de fazer alterações a esta política de privacidade a qualquer momento, dando aviso aos seus Usuários nesta página. É altamente recomendável verificar esta página frequentemente, referindo-se à data da última modificação.
+Informações sobre esta política de privacidade
+O Controlador de Dados é responsável por esta política de privacidade.
+Definições e referências legais
+Dados Pessoais (ou Dados)
+Qualquer informação relativa a uma pessoa singular, a uma pessoa coletiva, a uma instituição ou a uma associação, que é ou pode ser identificada, mesmo indiretamente, por referência a qualquer outra informação, incluindo um número de identificação pessoal.
+Dados de uso
+As informações coletadas automaticamente deste Aplicativo (ou serviços de terceiros empregados neste Aplicativo), que podem incluir: os endereços IP ou nomes de domínio dos computadores utilizados pelos Usuários que usam este Aplicativo, os endereços URI (Uniform Resource Identifier), o tempo Do pedido utilizado, o método utilizado para enviar a solicitação ao servidor, o tamanho do arquivo recebido em resposta, o código numérico indicando o status da resposta do servidor (resultado bem-sucedido, erro, etc.), o país de origem, Os recursos do navegador e do sistema operacional utilizado pelo Usuário, os diversos detalhes de tempo por visita (por exemplo, o tempo gasto em cada página dentro da Aplicação) e os detalhes sobre o caminho seguido no Aplicativo com referência especial à sequência de páginas Visitado e outros parâmetros sobre o sistema operacional do dispositivo e / ou o ambiente de TI do Usuário.
+Do utilizador
+O indivíduo que utiliza esta Aplicação, que deve coincidir com ou ser autorizado pelo Sujeito a Dados, a quem os Dados Pessoais se referem.
+Dados
+A pessoa singular ou coletiva a que se referem os Dados Pessoais.
+Processador de Dados (ou Supervisor de Dados)
+A pessoa singular, pessoa coletiva, administração pública ou qualquer outro organismo, associação ou organização autorizada pelo Controlador de Dados a processar os Dados Pessoais em conformidade com esta política de privacidade.
+Controlador de dados (ou proprietário)
+A pessoa singular, a pessoa coletiva, a administração pública ou qualquer outro organismo, associação ou organização com o direito, também em conjunto com outro responsável pelo tratamento de dados, de tomar decisões relativas aos fins e aos métodos de tratamento de dados pessoais e dos meios utilizados, Medidas de segurança relativas ao funcionamento e à utilização do presente pedido. O Controlador de Dados, salvo indicação em contrário, é o Proprietário desta Aplicação.
+
+</string>
 </resources>
