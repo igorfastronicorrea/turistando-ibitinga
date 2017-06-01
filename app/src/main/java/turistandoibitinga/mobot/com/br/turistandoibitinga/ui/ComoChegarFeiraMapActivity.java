@@ -52,9 +52,9 @@ public class ComoChegarFeiraMapActivity extends AppCompatActivity {
             }
         });
 
-        final String lat = "-21.766753";
-        final String log = "-48.839374";
-        final String nome = "Pavilhão de Exposições";
+        final String lat = "-21.766812";
+        final String log = "-48.830385";
+        final String nome = "Pavilhão de Exposição, Ibitinga";
 
         mMapView = (MapView) findViewById(R.id.mapComoChegar);
         mMapView.onCreate(savedInstanceState);

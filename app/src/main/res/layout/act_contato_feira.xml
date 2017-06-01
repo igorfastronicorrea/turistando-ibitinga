@@ -101,7 +101,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
-                        android:text="email@feira.com.br"
+                        android:text="feiradobordado@ibitinga.sp.gov.br"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -134,7 +134,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
-                        android:text="(16) 3341 - 2719"
+                        android:text="(16) 3342 - 8434"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="18dp" />
                 </LinearLayout>
@@ -167,7 +167,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="30dp"
-                        android:text="(16) 99137 - 7661"
+                        android:text="(16) 3342 - 8435"
                         android:textColor="@color/cardview_dark_background"
                         android:textSize="18dp" />
                 </LinearLayout>

@@ -71,7 +71,7 @@ public class ContatoFeiraActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"email@feira.com.br"});
+                intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"feiradobordado@ibitinga.sp.gov.br"});
                 startActivity(Intent.createChooser(intent, ""));
             }
         });
@@ -83,7 +83,7 @@ public class ContatoFeiraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+ "1633412719"));
+                callIntent.setData(Uri.parse("tel:"+ "1633428434"));
                 startActivity(callIntent );
             }
         });
@@ -95,7 +95,7 @@ public class ContatoFeiraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent callIntent = new Intent(Intent.ACTION_DIAL);
-                callIntent.setData(Uri.parse("tel:"+ "16991377161"));
+                callIntent.setData(Uri.parse("tel:"+ "1633428435"));
                 startActivity(callIntent );
             }
         });
