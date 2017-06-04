@@ -29,6 +29,7 @@
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,10 +40,12 @@
         <activity
             android:name=".ui.ListarEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarListarEmpresasBlack" />
         <activity
             android:name=".ui.DetalhesEmpresaActivity"
             android:label="@string/title_activity_detalhes_empresa"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
         <activity
             android:name=".ui.DetailFotoZoom"
@@ -50,26 +53,32 @@
         <activity
             android:name=".ui.MenuFeiraDoBordadoActivity"
             android:label="Feira do Bordado"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme"></activity>
         <activity
             android:name=".ui.ComoChegarFeiraMapActivity"
             android:label="Como Chegar"
+            android:screenOrientation="portrait"
             android:theme="@style/ComoChegar"></activity>
         <activity
             android:name=".ui.FotoPavilhaoActivity"
             android:label="Feira do Bordado"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".ui.ContatoFeiraActivity"
             android:label="Contato"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
         <activity
             android:name=".ui.EventosActivity"
             android:label="@string/title_activity_detalhes_empresa"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarEventosLaranja"></activity>
         <activity
             android:name=".ui.ListarEventosActivity"
             android:label="Eventos"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarEventosLaranja" />
         <activity
             android:name=".ui.DetailEventoZoom"
@@ -77,18 +86,22 @@
         <activity
             android:name=".ui.TurismoIbitingaActivity"
             android:label="O que fazer em Ibitinga?"
+            android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarThemeTurismoIbitinga"></activity>
         <activity
             android:name=".ui.TurismoIbitingaDetalhesActivity"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesTurismoRoxo"></activity>
         <activity
             android:name=".ui.PoliticaPrivacidade"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
         <activity
             android:name=".ui.DesenvolvimentoActivity"
             android:label=""
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
 
         <meta-data

@@ -152,7 +152,7 @@ public class HomeActivity extends AppCompatActivity
                 bebe.putExtra("api_listagem", "listagem_empresa_bebe");
                 bebe.putExtra("api_slide", "slide_listagem_bebe");
                 bebe.putExtra("api_detalhes", "detalhes_empresa_bebe");
-                bebe.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bebe");
+                bebe.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_bebe");
                 bebe.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bebe");
                 bebe.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(bebe);
@@ -163,7 +163,7 @@ public class HomeActivity extends AppCompatActivity
                 camamesabanho.putExtra("api_listagem", "listagem_empresa_camamesabanho");
                 camamesabanho.putExtra("api_slide", "slide_listagem_camamesabanho");
                 camamesabanho.putExtra("api_detalhes", "detalhes_empresa_camamesabanho");
-                camamesabanho.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_camamesabanho");
+                camamesabanho.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_camamesabanho");
                 camamesabanho.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_camamesabanho");
                 camamesabanho.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(camamesabanho);
@@ -174,7 +174,8 @@ public class HomeActivity extends AppCompatActivity
                 cozinha.putExtra("api_listagem", "listagem_empresa_cozinha");
                 cozinha.putExtra("api_slide", "slide_listagem_cozinha");
                 cozinha.putExtra("api_detalhes", "detalhes_empresa_cozinha");
-                cozinha.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_cozinha");
+                //cozinha.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_cozinha");
+                cozinha.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_cozinha");
                 cozinha.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_cozinha");
                 cozinha.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(cozinha);
@@ -185,7 +186,7 @@ public class HomeActivity extends AppCompatActivity
                 decoracao.putExtra("api_listagem", "listagem_empresa_decoracao");
                 decoracao.putExtra("api_slide", "slide_listagem_decoracao");
                 decoracao.putExtra("api_detalhes", "detalhes_empresa_decoracao");
-                decoracao.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_decoracao");
+                decoracao.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_decoracao");
                 decoracao.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_decoracao");
                 decoracao.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(decoracao);
@@ -196,7 +197,7 @@ public class HomeActivity extends AppCompatActivity
                 bichoPelucia.putExtra("api_listagem", "listagem_empresa_bichodepelucia");
                 bichoPelucia.putExtra("api_slide", "slide_listagem_bichopelucia");
                 bichoPelucia.putExtra("api_detalhes", "detalhes_empresa_bichodepelucia");
-                bichoPelucia.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bichodepelucia");
+                bichoPelucia.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_bichodepelucia");
                 bichoPelucia.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bichodepelucia");
                 bichoPelucia.putExtra("theme", "AppTheme_NoActionBarListar");
                 startActivity(bichoPelucia);
@@ -217,7 +218,7 @@ public class HomeActivity extends AppCompatActivity
                 restaurante.putExtra("api_listagem", "listagem_empresa_restaurante");
                 restaurante.putExtra("api_slide", "slide_listagem_restaurante");
                 restaurante.putExtra("api_detalhes", "detalhes_empresa_restaurante");
-                restaurante.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_restaurante");
+                restaurante.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_restaurante");
                 restaurante.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_restaurante");
                 restaurante.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
                 startActivity(restaurante);
@@ -228,7 +229,7 @@ public class HomeActivity extends AppCompatActivity
                 hotel.putExtra("api_listagem", "listagem_empresa_hoteis");
                 hotel.putExtra("api_slide", "slide_listagem_hotel");
                 hotel.putExtra("api_detalhes", "detalhes_empresa_hoteis");
-                hotel.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_hoteis");
+                hotel.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_hoteis");
                 hotel.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_hoteis");
                 hotel.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
                 startActivity(hotel);
@@ -239,7 +240,7 @@ public class HomeActivity extends AppCompatActivity
                 bar.putExtra("api_listagem", "listagem_empresa_bar");
                 bar.putExtra("api_slide", "slide_listagem_bar");
                 bar.putExtra("api_detalhes", "detalhes_empresa_bar");
-                bar.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_ot_bar");
+                bar.putExtra("api_detalhes_foto_ot", "detalhes_empresa_fotos_bar");
                 bar.putExtra("api_detalhes_fotos", "detalhes_empresa_fotos_bar");
                 bar.putExtra("theme", "AppTheme_NoActionBarListarRestaurante");
                 startActivity(bar);
