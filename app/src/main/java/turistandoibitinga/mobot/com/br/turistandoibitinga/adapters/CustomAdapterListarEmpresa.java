@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -44,7 +44,8 @@ public class CustomAdapterListarEmpresa  extends RecyclerView.Adapter<CustomAdap
         holder.nome.setText(my_data.get(position).getNome());
         holder.enderecoListarEmpresa.setText(my_data.get(position).getDescricao());
         //Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizada()).resize(120, 60).into(holder.ivFoto);
-        Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizada()).into(holder.ivFoto);
+        //Picasso.with(context).load(my_data.get(position).getFoto_capa_otimizada()).into(holder.ivFoto);
+        Glide.with(context).load(my_data.get(position).getFoto_capa_otimizada()).into(holder.ivFoto);
     }
 
     @Override

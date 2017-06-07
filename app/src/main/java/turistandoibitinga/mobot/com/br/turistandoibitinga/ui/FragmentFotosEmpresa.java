@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +39,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
     private CustomAdapterFotosEmpresa adapter;
     private List<ImagemDataEmpresa> data_list;
     String idEmpresa, api_detalhes_foto_ot, api_detalhes_fotos;
+    private ProgressBar progressBar;
 
     public FragmentFotosEmpresa() {
         // Required empty public constructor
@@ -66,6 +68,10 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
         api_detalhes_foto_ot = args.getString("api_detalhes_foto_ot");
         api_detalhes_fotos = args.getString("api_detalhes_fotos");
         carregaDados(Integer.parseInt(idEmpresa));
+
+
+        progressBar = (ProgressBar) v.findViewById(R.id.progressBarFotos);
+        progressBar.setVisibility(View.VISIBLE);
 
 
         linearLayoutManager = new LinearLayoutManager(getContext());
@@ -125,7 +131,7 @@ public class FragmentFotosEmpresa extends Fragment implements RecycleViewOnClick
 
             @Override
             protected void onPostExecute(Void aVoid) {
-                //progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(View.GONE);
                 adapter.notifyDataSetChanged();
             }
         };

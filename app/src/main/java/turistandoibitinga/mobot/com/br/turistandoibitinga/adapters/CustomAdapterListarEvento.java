@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -43,7 +43,8 @@ public class CustomAdapterListarEvento extends RecyclerView.Adapter<CustomAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.nome.setText(my_data.get(position).getNome());
         holder.dataEvento.setText(my_data.get(position).getDescricao());
-        Picasso.with(context).load(my_data.get(position).getFoto_capa()).into(holder.ivFoto);
+        //Picasso.with(context).load(my_data.get(position).getFoto_capa()).into(holder.ivFoto);
+        Glide.with(context).load(my_data.get(position).getFoto_capa()).into(holder.ivFoto);
     }
 
     @Override

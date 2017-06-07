@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -42,7 +42,10 @@ public class CustomAdapterFotosEmpresa extends RecyclerView.Adapter<CustomAdapte
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         //Picasso.with(context).load(my_data.get(position).getFoto()).resize(120, 60).into(holder.foto_1);
-        Picasso.with(context).load(my_data.get(position).getFoto()).into(holder.foto_1);
+        //OFICIALPicasso.with(context).load(my_data.get(position).getFoto()).into(holder.foto_1);
+
+        Glide.with(context).load(my_data.get(position).getFoto()).into(holder.foto_1);
+
     }
 
     @Override

@@ -51,7 +51,6 @@ public class ImageAdapter extends PagerAdapter {
 
         final PhotoViewAttacher photoViewAttacher = new PhotoViewAttacher(imageView);
 
-
         Picasso.with(context).load(my_data.get(position).getFoto()).into(imageView, new Callback() {
             @Override
             public void onSuccess() {

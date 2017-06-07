@@ -46,6 +46,7 @@ public class CustomAdapterMenuFeira extends RecyclerView.Adapter<CustomAdapterMe
         //ImageView imageView = holder.ivFoto;
         //imageView.setImageResource(my_data.get(position).getImage());
         Picasso.with(context).load(my_data.get(position).getImage()).into(holder.ivFoto);
+        //Glide.with(context).load(my_data.get(position).getImage()).into(holder.ivFoto);
     }
 
     @Override

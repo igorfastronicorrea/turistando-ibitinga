@@ -49,6 +49,7 @@ public class CustomAdapterEmpresa extends RecyclerView.Adapter<CustomAdapterEmpr
                 R.mipmap.cat_bichodepelucia1   };
 
         Picasso.with(context).load(drawableArray[position]).into(holder.ivFoto);
+
         //ImageView imageView = holder.ivFoto;
         //imageView.setImageResource(my_data.get(position).getImage());
     }

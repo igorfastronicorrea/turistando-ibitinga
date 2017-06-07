@@ -16,6 +16,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url "http://jitpack.io"}
+        mavenCentral() // jcenter() works as well because it pulls from Maven Central
     }
 }
 
