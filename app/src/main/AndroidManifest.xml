@@ -103,6 +103,11 @@
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
+        <activity
+            android:name=".ui.SobreNos"
+            android:label=""
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBarDetalhesEmpresaAzul"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

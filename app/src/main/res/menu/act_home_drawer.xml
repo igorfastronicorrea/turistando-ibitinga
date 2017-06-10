@@ -12,6 +12,11 @@
         android:icon="@drawable/info_icon"
         android:title="Política de Privacidade" />
 
+    <item
+        android:id="@+id/nav_sobrenos"
+        android:icon="@drawable/domain"
+        android:title="Sobre Nós" />
+
     <!--<item android:title="Política">
         <menu>
             <item

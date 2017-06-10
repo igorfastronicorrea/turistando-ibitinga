@@ -274,6 +274,9 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_manage) {
             Intent politica = new Intent(HomeActivity.this, PoliticaPrivacidade.class);
             startActivity(politica);
+        }else if (id == R.id.nav_sobrenos) {
+            Intent politica = new Intent(HomeActivity.this, SobreNos.class);
+            startActivity(politica);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
